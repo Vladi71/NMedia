@@ -1,0 +1,2 @@
+ru/netology/BuildConfig.java
+ ru.netology.BuildConfig
