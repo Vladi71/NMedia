@@ -6,11 +6,11 @@
                 {
                     "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\values-ru-rRU\\strings.xml",
                     "from": {
-                        "startLines": "7,-1,6,5,-1,-1,8,9",
-                        "startColumns": "4,-1,4,4,-1,-1,4,4",
-                        "startOffsets": "843,-1,307,245,-1,-1,886,929",
-                        "endColumns": "41,-1,534,60,-1,-1,41,41",
-                        "endOffsets": "880,-1,837,301,-1,-1,923,966"
+                        "startLines": "7,4,6,5,2,3,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "843,154,307,245,57,102,886,929",
+                        "endColumns": "41,89,534,60,43,50,41,41",
+                        "endOffsets": "880,239,837,301,96,148,923,966"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9",
