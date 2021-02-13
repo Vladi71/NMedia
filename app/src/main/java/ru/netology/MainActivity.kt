@@ -3,6 +3,8 @@ package ru.netology
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import ru.netology.adapter.OnInteractionListener
+import ru.netology.adapter.PostAdapter
 import ru.netology.databinding.ActivityMainBinding
 import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
@@ -15,26 +17,23 @@ class MainActivity : AppCompatActivity() {
 
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                authorTv.text = post.author
-                contentTv.text = post.content
-                publishedTv.text = post.published
-                numberLikeTv.text = Utils.valueUpgrade(post.numberOfLike)
-                numberShareTv.text = Utils.valueUpgrade(post.numberOfShare)
-                numberViewTv.text = post.numberOfView.toString()
-                likeIb.setImageResource(
-                        if (post.likedByMe) R.drawable.liked_avatar else R.drawable.like_avatar
-                )
+        val adapter = PostAdapter(object : OnInteractionListener {
+
+            override fun OnShare(post: Post) {
+                viewModel.shareById(post.id)
             }
+            override fun onLike(post: Post) {
+                viewModel.likeById(post.id)
+            }
+        })
+        binding.list.adapter = adapter
+        viewModel.data.observe(this) { post ->
+            adapter.submitList(post)
+
         }
-        binding.likeIb.setOnClickListener {
-            viewModel.like()
-        }
-        binding.shareIb.setOnClickListener {
-            viewModel.share()
-        }
+
     }
 }
+
 
 

@@ -1,3 +1,5 @@
+ru/netology/databinding/CardPostBinding.java
+ ru.netology.databinding.CardPostBinding
 ru/netology/BuildConfig.java
  ru.netology.BuildConfig
 ru/netology/databinding/ActivityMainBinding.java
