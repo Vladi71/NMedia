@@ -16,6 +16,10 @@
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\menu_avatar.xml"
     },
     {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\menu_options_post.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\menu\\options_post.xml"
+    },
+    {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_save_avatar.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\save_avatar.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_view_avatar.xml.flat",

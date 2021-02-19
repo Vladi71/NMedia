@@ -1,7 +1,9 @@
 package ru.netology.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,12 +15,15 @@ import ru.netology.dto.Post
 interface OnInteractionListener {
     fun onLike(post: Post) {}
     fun OnShare(post: Post) {}
+    fun OnRemove(post: Post) {}
+    fun OnEdit(post: Post) {}
+
 }
 
 class PostAdapter(
-    private val OnInteractionListener: OnInteractionListener
+        private val OnInteractionListener: OnInteractionListener
 ) :
-    ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
+        ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -33,10 +38,10 @@ class PostAdapter(
 }
 
 class PostViewHolder(
-    private val binding: CardPostBinding,
-    private val OnInteractionListener: OnInteractionListener,
+        private val binding: CardPostBinding,
+        private val OnInteractionListener: OnInteractionListener,
 
-    ) : RecyclerView.ViewHolder(binding.root) {
+        ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
             authorTv.text = post.author
@@ -46,7 +51,7 @@ class PostViewHolder(
             numberShareTv.text = Utils.valueUpgrade(post.numberOfShare)
             numberViewTv.text = post.numberOfView.toString()
             likeIb.setImageResource(
-                if (post.likedByMe) R.drawable.liked_avatar else R.drawable.like_avatar
+                    if (post.likedByMe) R.drawable.liked_avatar else R.drawable.like_avatar
             )
         }
         binding.likeIb.setOnClickListener {
@@ -54,6 +59,25 @@ class PostViewHolder(
         }
         binding.shareIb.setOnClickListener {
             OnInteractionListener.OnShare(post)
+        }
+
+        binding.menuIb.setOnClickListener {
+            PopupMenu(it.context, it).apply {
+                inflate(R.menu.options_post)
+                setOnMenuItemClickListener { item ->
+                    when (item.itemId) {
+                        R.id.Remove -> {
+                            OnInteractionListener.OnRemove(post)
+                            true
+                        }
+                        R.id.Edit -> {
+                            OnInteractionListener.OnEdit(post)
+                            true
+                        }
+                        else -> false
+                    }
+                }
+            }.show()
         }
     }
 }

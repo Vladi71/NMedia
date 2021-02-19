@@ -2,4 +2,7 @@
 <resources>
     <string name="nmedia">NMedia!!!!!!!!!</string>
     <string name="PostAuthor">Netology. University of Internet Professions of the Future</string>
+    <string name="remove">Remove</string>
+    <string name="edit">Edit</string>
+    <string name="toast_content">Content can`t be empty</string>
 </resources>

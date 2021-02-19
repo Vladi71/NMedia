@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.NMedia" >
-        <activity android:name="ru.netology.MainActivity" >
+        <activity android:name="ru.netology.Activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1580,6 +1580,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable save_avatar
 drawable share_avatar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1589,9 +1590,11 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Edit
 id FUNCTION
 id META
 id NO_DEBUG
+id Remove
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -1697,6 +1700,7 @@ id collapseActionView
 id confirm_button
 id container
 id content
+id contentEt
 id contentPanel
 id contentTv
 id coordinator
@@ -1860,6 +1864,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id saveIv
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -1946,6 +1951,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolsTop
 id top
 id topPanel
 id touch_outside
@@ -2100,6 +2106,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu options_post
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -2142,6 +2149,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string edit
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -2194,8 +2202,10 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string remove
 string search_menu_title
 string status_bar_notification_info_overflow
+string toast_content
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
