@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             override fun OnEdit(post: Post) {
                 viewModel.edit(post)
             }
-            override fun OnCancelEdit(post: Post){
+
+            override fun OnCancelEdit(post: Post) {
                 viewModel.cancelChange()
             }
 
@@ -64,9 +65,11 @@ class MainActivity : AppCompatActivity() {
         binding.saveIv.setOnClickListener {
             with(binding.contentEt) {
                 if (text.isNullOrBlank()) {
-                    Toast.makeText(this@MainActivity,
-                            context.getString(R.string.toast_content),
-                            Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        context.getString(R.string.toast_content),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     return@setOnClickListener
                 }
                 viewModel.changeContent(text.toString())

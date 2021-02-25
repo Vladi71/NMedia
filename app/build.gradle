@@ -29,6 +29,7 @@ android {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
+            coreLibraryDesugaringEnabled true
         }
         kotlinOptions {
             jvmTarget = '1.8'
@@ -44,7 +45,7 @@ android {
         implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
         implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-        testImplementation"androidx.arch.core:core-testing:$arch_version"
+        testImplementation "androidx.arch.core:core-testing:$arch_version"
         implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
 
         implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -55,6 +56,6 @@ android {
         testImplementation 'junit:junit:4.+'
         androidTestImplementation 'androidx.test.ext:junit:1.1.2'
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+        coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     }
 }

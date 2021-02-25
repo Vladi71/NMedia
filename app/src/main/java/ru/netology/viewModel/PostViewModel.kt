@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import ru.netology.dto.Post
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryInMemoryImpl
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class PostViewModel : ViewModel() {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
@@ -13,15 +16,19 @@ class PostViewModel : ViewModel() {
     fun shareById(id: Long) = repository.shareById(id)
     fun removeById(id: Long) = repository.removeBuId(id)
 
+    private val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
+    val currentDate = Instant.now().atZone(ZoneId.systemDefault())
+
+
     private val empty = Post(
-            id = 0,
-            author = "Нетология. Университет интернет-профессий будущего",
-            content = "",
-            published = "18 февраля в 10:12",
-            likedByMe = false,
-            numberOfLike = 0,
-            numberOfShare = 0,
-            numberOfView = 0
+        id = 0,
+        author = "Нетология. Университет интернет-профессий будущего",
+        content = "",
+        published = formatter.format(currentDate),
+        likedByMe = false,
+        numberOfLike = 0,
+        numberOfShare = 0,
+        numberOfView = 0
 
     )
     val edited = MutableLiveData(empty)
@@ -40,15 +47,17 @@ class PostViewModel : ViewModel() {
                 return
             }
 
-            edited.value = it.copy(content = text)
+            edited.value =
+                it.copy(content = text)
 
         }
     }
-    fun edit(post: Post){
-      edited.value = post
+
+    fun edit(post: Post) {
+        edited.value = post
     }
 
-    fun  cancelChange(){
+    fun cancelChange() {
         edited.value = edited.value
     }
 
