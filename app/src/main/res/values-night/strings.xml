@@ -5,4 +5,5 @@
     <string name="remove">Remove</string>
     <string name="edit">Edit</string>
     <string name="toast_content">Content can`t be empty</string>
+    <string name="edit_tv">Edit</string>
 </resources>

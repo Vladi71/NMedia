@@ -7,6 +7,7 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ru.netology.AndroidUtils
 import ru.netology.R
 import ru.netology.Utils
 import ru.netology.databinding.CardPostBinding
@@ -17,7 +18,7 @@ interface OnInteractionListener {
     fun OnShare(post: Post) {}
     fun OnRemove(post: Post) {}
     fun OnEdit(post: Post) {}
-
+    fun OnCancelEdit(post: Post) {}
 }
 
 class PostAdapter(
@@ -53,6 +54,7 @@ class PostViewHolder(
             likeIb.setImageResource(
                     if (post.likedByMe) R.drawable.liked_avatar else R.drawable.like_avatar
             )
+
         }
         binding.likeIb.setOnClickListener {
             OnInteractionListener.onLike(post)
@@ -60,6 +62,8 @@ class PostViewHolder(
         binding.shareIb.setOnClickListener {
             OnInteractionListener.OnShare(post)
         }
+       
+
 
         binding.menuIb.setOnClickListener {
             PopupMenu(it.context, it).apply {
@@ -71,7 +75,9 @@ class PostViewHolder(
                             true
                         }
                         R.id.Edit -> {
+
                             OnInteractionListener.OnEdit(post)
+
                             true
                         }
                         else -> false

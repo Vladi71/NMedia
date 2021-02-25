@@ -2,6 +2,7 @@ package ru.netology.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import ru.netology.AndroidUtils
@@ -37,6 +38,9 @@ class MainActivity : AppCompatActivity() {
             override fun OnEdit(post: Post) {
                 viewModel.edit(post)
             }
+            override fun OnCancelEdit(post: Post){
+                viewModel.cancelChange()
+            }
 
         })
         binding.list.adapter = adapter
@@ -48,6 +52,10 @@ class MainActivity : AppCompatActivity() {
             if (post.id == 0L) {
                 return@observe
             }
+
+            binding.CancelTextTv.text = post.content
+            binding.group.visibility = View.VISIBLE
+
             with(binding.contentEt) {
                 requestFocus()
                 setText(post.content)
@@ -68,7 +76,20 @@ class MainActivity : AppCompatActivity() {
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
+            binding.group.visibility = View.GONE
         }
+        binding.CancelIv.setOnClickListener {
+
+            with(binding.contentEt) {
+                viewModel.cancelChange()
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+
+            }
+            binding.group.visibility = View.GONE
+        }
+
 
     }
 }

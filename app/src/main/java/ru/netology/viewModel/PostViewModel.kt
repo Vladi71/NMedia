@@ -39,6 +39,7 @@ class PostViewModel : ViewModel() {
             if (it.content == text) {
                 return
             }
+
             edited.value = it.copy(content = text)
 
         }
@@ -47,5 +48,8 @@ class PostViewModel : ViewModel() {
       edited.value = post
     }
 
+    fun  cancelChange(){
+        edited.value = edited.value
+    }
 
 }

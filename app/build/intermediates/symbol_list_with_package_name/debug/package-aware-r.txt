@@ -1537,12 +1537,14 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable cancel_avatar
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_baseline_mode_edit_outline_24
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
@@ -1590,10 +1592,14 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id CancelIv
+id CancelTextTv
 id Edit
+id EditedTextTv
 id FUNCTION
 id META
 id NO_DEBUG
+id PenIv
 id Remove
 id SHIFT
 id SHOW_ALL
@@ -1758,6 +1764,7 @@ id ghost_view_holder
 id gone
 id graph
 id graph_wrap
+id group
 id group_divider
 id grouping
 id groups
@@ -2150,6 +2157,7 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string edit
+string edit_tv
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
