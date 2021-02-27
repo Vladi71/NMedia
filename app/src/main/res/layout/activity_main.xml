@@ -29,6 +29,7 @@
         android:id="@+id/contentEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:maxHeight="200dp"
         android:importantForAccessibility="no"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
