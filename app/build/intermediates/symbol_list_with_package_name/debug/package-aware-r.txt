@@ -985,6 +985,7 @@ color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color ic_launcher_background
+color like_checkbox_tint
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1546,6 +1547,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_mode_edit_outline_24
 drawable ic_launcher_foreground
+drawable ic_like_24dp
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1837,9 +1839,6 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
-id numberLikeTv
-id numberShareTv
-id numberViewTv
 id off
 id on
 id outline
@@ -2210,6 +2209,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string quantity
 string remove
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -2797,6 +2797,7 @@ style Widget_AppCompat_TextView
 style Widget_AppCompat_TextView_SpinnerItem
 style Widget_AppCompat_Toolbar
 style Widget_AppCompat_Toolbar_Button_Navigation
+style Widget_AppTheme_LikeCheckBox
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Design_AppBarLayout

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_like_24dp.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\ic_like_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\menu_options_post.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\menu\\options_post.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\color_like_checkbox_tint.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\color\\like_checkbox_tint.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",

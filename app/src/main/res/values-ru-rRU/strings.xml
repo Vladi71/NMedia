@@ -12,4 +12,5 @@
     <string name="edit">Изменить</string>
     <string name="toast_content">Введите текст!</string>
     <string name="edit_tv">Редактирование</string>
+    <string name="quantity">123</string>
 </resources>

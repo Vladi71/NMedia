@@ -3,6 +3,7 @@ package ru.netology
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import java.lang.Math.floor
 
 class Utils {
     companion object {
@@ -10,7 +11,7 @@ class Utils {
             return when (count) {
                 in 0..999 -> count.toString()
                 in 1000..1099 -> String.format((count / 1000).toString() + "K")
-                in 1099..9999 -> String.format((count / 1000.toDouble()).toString() + "K")
+                in 1099..9999 -> String.format("%.1f", (kotlin.math.floor(count / 100.toDouble()))/10) + "K"
                 in 10000..99999 -> String.format((count / 1000).toString() + "K")
                 in 100000..999999 -> String.format((count / 1000).toString() + "K")
                 in 1000000..1099999 -> String.format((count / 1000000).toString() + "M")

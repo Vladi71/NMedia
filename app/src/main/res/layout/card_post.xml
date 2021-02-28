@@ -43,15 +43,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_round" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/menuIb"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        style="@style/Widget.AppTheme.LikeCheckBox"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_marginEnd="24dp"
         android:background="@android:color/transparent"
+        app:icon="@drawable/menu_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/authorTv"
-        app:srcCompat="@drawable/menu_avatar" />
+        app:layout_constraintTop_toTopOf="@+id/authorTv" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/publishedBarrier"
@@ -80,71 +81,51 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="contentTv" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/likeIb"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        style="@style/Widget.AppTheme.LikeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
+        android:checkable="true"
+        android:text="@string/quantity"
+        android:textColor="@color/material_on_surface_emphasis_medium"
+        app:icon="@drawable/ic_like_24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/publishedBarrier2"
-        app:srcCompat="@drawable/like_avatar" />
+        app:layout_constraintTop_toBottomOf="@id/publishedBarrier2" />
 
-    <TextView
-        android:id="@+id/numberLikeTv"
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shareIb"
+        style="@style/Widget.AppTheme.LikeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/NumberLike"
-        app:layout_constraintBottom_toBottomOf="@+id/likeIb"
-        app:layout_constraintStart_toEndOf="@+id/likeIb"
-        app:layout_constraintTop_toTopOf="@+id/likeIb" />
-
-    <ImageButton
-        android:id="@+id/shareIb"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@+id/numberLikeTv"
+        android:text="@string/quantity"
+        android:textColor="@color/material_on_surface_emphasis_medium"
+        app:icon="@drawable/share_avatar"
+        app:layout_constraintStart_toEndOf="@+id/likeIb"
         app:layout_constraintTop_toBottomOf="@id/publishedBarrier2"
-        app:srcCompat="@drawable/share_avatar" />
 
-    <TextView
-        android:id="@+id/numberShareTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/numberShare"
-        app:layout_constraintBottom_toBottomOf="@+id/shareIb"
-        app:layout_constraintStart_toEndOf="@+id/shareIb"
-        app:layout_constraintTop_toTopOf="@+id/shareIb" />
+        />
 
-    <ImageButton
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/viewIb"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/numberViewTv"
-        app:layout_constraintEnd_toStartOf="@+id/numberViewTv"
-        app:layout_constraintTop_toBottomOf="@id/publishedBarrier2"
-        app:layout_constraintTop_toTopOf="@+id/numberViewTv"
-        app:srcCompat="@drawable/view_avatar" />
-
-    <TextView
-        android:id="@+id/numberViewTv"
+        style="@style/Widget.AppTheme.LikeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/numberView"
+        android:background="@android:color/transparent"
+        android:text="@string/quantity"
+        android:textColor="@color/material_on_surface_emphasis_medium"
+        app:icon="@drawable/view_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/publishedBarrier2" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/contentTv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

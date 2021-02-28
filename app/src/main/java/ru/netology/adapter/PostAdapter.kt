@@ -48,12 +48,10 @@ class PostViewHolder(
             authorTv.text = post.author
             contentTv.text = post.content
             publishedTv.text = post.published
-            numberLikeTv.text = Utils.valueUpgrade(post.numberOfLike)
-            numberShareTv.text = Utils.valueUpgrade(post.numberOfShare)
-            numberViewTv.text = post.numberOfView.toString()
-            likeIb.setImageResource(
-                    if (post.likedByMe) R.drawable.liked_avatar else R.drawable.like_avatar
-            )
+            likeIb.text = Utils.valueUpgrade(post.numberOfLike)
+            shareIb.text = Utils.valueUpgrade(post.numberOfShare)
+            viewIb.text = post.numberOfView.toString()
+            likeIb.isChecked = post.likedByMe
 
         }
         binding.likeIb.setOnClickListener {
