@@ -79,7 +79,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="contentTv" />
+        app:constraint_referenced_ids="videoIb" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/videoIb"
+        style="@style/Widget.AppTheme.LikeCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:autoLink="web"
+        android:backgroundTint="@android:color/darker_gray"
+        android:paddingStart="145dp"
+        android:textColorHighlight="#00FFFFFF"
+        android:textColorLink="#00FFFFFF"
+        android:visibility="visible"
+        app:icon="@drawable/video_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contentTv" />
+
+
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/likeIb"
@@ -125,7 +147,7 @@
         android:textColor="@color/material_on_surface_emphasis_medium"
         app:icon="@drawable/view_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contentTv" />
+        app:layout_constraintTop_toBottomOf="@+id/publishedBarrier2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

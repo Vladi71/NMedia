@@ -1,10 +1,13 @@
 package ru.netology.Activity
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
 import ru.netology.AndroidUtils
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
@@ -14,17 +17,26 @@ import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
+    val viewModel: PostViewModel by viewModels()
+    private val newPostRequestCode = 1
+    private val editPostRequestCode = 2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        val viewModel: PostViewModel by viewModels()
         val adapter = PostAdapter(object : OnInteractionListener {
 
             override fun OnShare(post: Post) {
                 viewModel.shareById(post.id)
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, post.content)
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(intent, getString(R.string.shooser_intent_post))
+                startActivity(shareIntent)
             }
 
             override fun onLike(post: Post) {
@@ -44,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        binding.list.adapter = adapter
+        binding.listPost.adapter = adapter
         viewModel.data.observe(this) { post ->
             adapter.submitList(post)
 
@@ -54,45 +66,34 @@ class MainActivity : AppCompatActivity() {
                 return@observe
             }
 
-            binding.CancelTextTv.text = post.content
-            binding.group.visibility = View.VISIBLE
-
-            with(binding.contentEt) {
-                requestFocus()
-                setText(post.content)
-            }
         }
-        binding.saveIv.setOnClickListener {
-            with(binding.contentEt) {
-                if (text.isNullOrBlank()) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        context.getString(R.string.toast_content),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
+
+
+        binding.addPostView.setOnClickListener {
+            val intent = Intent(this, NewPostActivity::class.java)
+            startActivityForResult(intent, newPostRequestCode)
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            newPostRequestCode -> {
+                if (resultCode != Activity.RESULT_OK) {
+                    return
                 }
-                viewModel.changeContent(text.toString())
-                viewModel.save()
+                data?.extras?.let {
+                    val textContent = it?.get("contentText").toString()
+                    val videoContent = it?.get("contentVideo").toString()
+                    viewModel.changeContent(textContent, videoContent)
+                    viewModel.save()
 
-                setText("")
-                clearFocus()
-                AndroidUtils.hideKeyboard(this)
+                }
             }
-            binding.group.visibility = View.GONE
+
         }
-        binding.CancelIv.setOnClickListener {
-
-            with(binding.contentEt) {
-                viewModel.cancelChange()
-                setText("")
-                clearFocus()
-                AndroidUtils.hideKeyboard(this)
-
-            }
-            binding.group.visibility = View.GONE
-        }
-
 
     }
 }

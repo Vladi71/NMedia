@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [androidx.databinding:viewbinding:4.1.2] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\fc448e5ee20ce795af9eb88f207aaebe\jetified-viewbinding-4.1.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\167187429665cbb2a7a8daa14441e446\jetified-activity-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\4a38fd40dad1e79487ddbc28413f4038\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
@@ -40,25 +40,25 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ronrs\.gradle\cache
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\de534ec502b5897f37cd0656f012af8b\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\c453ae57944e0c881698300b976bdf91\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\65fa869a3d2398e881633f29543be79b\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
-INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-21:12
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:5:5-19:19
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:5:5-34:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\4629cac30e493d029221c9668d14f8d5\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\4629cac30e493d029221c9668d14f8d5\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\31ac098d93a2a0ddf2e84d89031f5da7\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -81,20 +81,50 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ro
 		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:11:9-44
+activity#ru.netology.Activity.EditPostActivity
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:12:9-14:58
+	android:windowSoftInputMode
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:14:13-55
+	android:name
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:13:13-54
+activity#ru.netology.Activity.NewPostActivity
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:15:9-17:58
+	android:windowSoftInputMode
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:17:13-55
+	android:name
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:16:13-53
+activity#ru.netology.Activity.IntentHandlerActivity
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:9-26:20
+	android:name
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:19-65
+intent-filter#action:name:android.intent.action.SEND+category:name:android.intent.category.DEFAULT+data:mimeType:*/*
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:19:13-25:29
+action#android.intent.action.SEND
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:20:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:22:17-76
+	android:name
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:22:27-73
+data
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:24:17-48
+	android:mimeType
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:24:23-45
 activity#ru.netology.Activity.MainActivity
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:27:9-33:20
 	android:name
-		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:12:19-56
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:27:19-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:13:13-17:29
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:16:17-77
+ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:31:27-74
 uses-sdk
 INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml

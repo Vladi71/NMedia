@@ -52,7 +52,12 @@ class PostViewHolder(
             shareIb.text = Utils.valueUpgrade(post.numberOfShare)
             viewIb.text = post.numberOfView.toString()
             likeIb.isChecked = post.likedByMe
-
+            videoIb.text = post.contentVideo
+            if (post.contentVideo == "") {
+                videoIb.visibility = View.GONE
+            } else {
+                videoIb.visibility = View.VISIBLE
+            }
         }
         binding.likeIb.setOnClickListener {
             OnInteractionListener.onLike(post)
@@ -60,7 +65,7 @@ class PostViewHolder(
         binding.shareIb.setOnClickListener {
             OnInteractionListener.OnShare(post)
         }
-       
+
 
 
         binding.menuIb.setOnClickListener {

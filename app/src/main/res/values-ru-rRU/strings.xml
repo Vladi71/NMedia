@@ -13,4 +13,8 @@
     <string name="toast_content">Введите текст!</string>
     <string name="edit_tv">Редактирование</string>
     <string name="quantity">123</string>
+    <string name="shooser_intent_post">Поделиться</string>
+    <string name="error_empty_content">Нельзя поделиться</string>
+    <string name="post_texts">Введите текст</string>
+    <string name="post_url_video">Введите URL</string>
 </resources>

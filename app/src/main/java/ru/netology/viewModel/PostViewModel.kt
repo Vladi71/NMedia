@@ -21,14 +21,15 @@ class PostViewModel : ViewModel() {
 
 
     private val empty = Post(
-        id = 0,
-        author = "Нетология. Университет интернет-профессий будущего",
-        content = "",
-        published = formatter.format(currentDate),
-        likedByMe = false,
-        numberOfLike = 0,
-        numberOfShare = 0,
-        numberOfView = 0
+            id = 0,
+            author = "Нетология. Университет интернет-профессий будущего",
+            content = "",
+            published = formatter.format(currentDate),
+            likedByMe = false,
+            numberOfLike = 0,
+            numberOfShare = 0,
+            numberOfView = 0,
+            contentVideo = ""
 
     )
     val edited = MutableLiveData(empty)
@@ -40,15 +41,16 @@ class PostViewModel : ViewModel() {
         edited.value = empty
     }
 
-    fun changeContent(content: String) {
+    fun changeContent(content: String, contentVideo: String) {
         edited.value?.let {
             val text = content.trim()
-            if (it.content == text) {
+            val url = contentVideo.trim()
+            if (it.content == text ) {
                 return
             }
 
             edited.value =
-                it.copy(content = text)
+                    it.copy(content = text, contentVideo = url)
 
         }
     }

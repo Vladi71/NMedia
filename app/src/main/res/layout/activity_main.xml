@@ -8,99 +8,25 @@
     tools:context=".Activity.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/listPost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/toolsTop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-16dp"
         tools:listitem="@layout/card_post" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/toolsTop"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPostView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="contentEt, saveIv" />
-
-    <EditText
-        android:id="@+id/contentEt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:maxHeight="200dp"
-        android:importantForAccessibility="no"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/saveIv"
-        app:layout_constraintHorizontal_bias="1.0"
-
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/saveIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listPost"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list"
-        app:srcCompat="@drawable/save_avatar" />
+        app:srcCompat="@drawable/ic_baseline_mode_edit_outline_2" />
 
-    <ImageView
-        android:id="@+id/PenIv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_mode_edit_outline_24" />
-
-    <ImageView
-        android:id="@+id/CancelIv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/cancel_avatar" />
-
-    <TextView
-        android:id="@+id/CancelTextTv"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:background="#FFFFFF"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:paddingStart="8dp"
-        android:text="@string/PostAuthor"
-        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
-        app:layout_constraintEnd_toStartOf="@+id/CancelIv"
-        app:layout_constraintStart_toEndOf="@+id/PenIv"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/EditedTextTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:paddingStart="32dp"
-        android:text="Редактировать"
-        android:textColor="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/CancelIv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="CancelIv, CancelTextTv, EditedTextTv, PenIv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

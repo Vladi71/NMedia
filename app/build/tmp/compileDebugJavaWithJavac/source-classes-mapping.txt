@@ -1,6 +1,12 @@
+ru/netology/databinding/ActivityIntentHandlerBinding.java
+ ru.netology.databinding.ActivityIntentHandlerBinding
 ru/netology/databinding/CardPostBinding.java
  ru.netology.databinding.CardPostBinding
 ru/netology/BuildConfig.java
  ru.netology.BuildConfig
+ru/netology/databinding/ActivityEditPostBinding.java
+ ru.netology.databinding.ActivityEditPostBinding
 ru/netology/databinding/ActivityMainBinding.java
  ru.netology.databinding.ActivityMainBinding
+ru/netology/databinding/ActivityNewPostBinding.java
+ ru.netology.databinding.ActivityNewPostBinding

@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_add_avatar.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\add_avatar.xml"
+    },
+    {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_like_24dp.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\ic_like_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_intent_handler.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_intent_handler.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\menu_options_post.xml.flat",
@@ -10,6 +18,10 @@
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_card_post.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\card_post.xml"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_mode_edit_outline_2.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\ic_baseline_mode_edit_outline_2.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_liked_avatar.xml.flat",
@@ -26,6 +38,10 @@
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit_post.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_edit_post.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
@@ -72,12 +88,20 @@
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_video_avatar.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\video_avatar.xml"
+    },
+    {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_new_post.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_new_post.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
