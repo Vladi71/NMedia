@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
@@ -12,7 +13,11 @@ import ru.netology.AndroidUtils
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
+import ru.netology.databinding.ActivityEditPostBinding
+import ru.netology.databinding.ActivityEditPostBinding.inflate
 import ru.netology.databinding.ActivityMainBinding
+import ru.netology.databinding.ActivityNewPostBinding
+import ru.netology.databinding.CardPostBinding
 import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
 
@@ -23,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding2 = ActivityEditPostBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
 
@@ -49,6 +56,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun OnEdit(post: Post) {
                 viewModel.edit(post)
+                val intent = Intent(this@MainActivity, EditPostActivity::class.java).apply {
+                    putExtra("text", post.content)
+
+                }
+
+                startActivityForResult(intent, editPostRequestCode)
             }
 
             override fun OnCancelEdit(post: Post) {
@@ -64,7 +77,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.edited.observe(this) { post ->
             if (post.id == 0L) {
                 return@observe
+
             }
+            binding2.cancelTextTv.text = post.content
 
         }
 
@@ -76,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -92,9 +108,20 @@ class MainActivity : AppCompatActivity() {
 
                 }
             }
+            editPostRequestCode -> {
+                if (resultCode != Activity.RESULT_OK) {
+                    return
+                }
+                data?.extras?.let {
+                    val editTextContent = it?.get("editContentText").toString()
+                    val videoContent = it?.get("contentVideo").toString()
+                    viewModel.changeContent(editTextContent, videoContent)
+                    viewModel.save()
+                }
+
+            }
 
         }
-
     }
 }
 

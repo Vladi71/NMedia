@@ -53,7 +53,7 @@ class PostViewHolder(
             viewIb.text = post.numberOfView.toString()
             likeIb.isChecked = post.likedByMe
             videoIb.text = post.contentVideo
-            if (post.contentVideo == "") {
+            if (post.contentVideo == "" || !post.contentVideo.startsWith("https")) {
                 videoIb.visibility = View.GONE
             } else {
                 videoIb.visibility = View.VISIBLE

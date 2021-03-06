@@ -21,7 +21,6 @@ class NewPostActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.cancelIv.setOnClickListener {
-
             with(binding.contentEt) {
                 viewModel.cancelChange()
                 setText("")
