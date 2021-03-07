@@ -28,14 +28,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        val binding2 = ActivityEditPostBinding.inflate(layoutInflater)
+
 
         setContentView(binding.root)
 
 
         val adapter = PostAdapter(object : OnInteractionListener {
 
-            override fun OnShare(post: Post) {
+            override fun onShare(post: Post) {
                 viewModel.shareById(post.id)
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
@@ -50,21 +50,21 @@ class MainActivity : AppCompatActivity() {
                 viewModel.likeById(post.id)
             }
 
-            override fun OnRemove(post: Post) {
+            override fun onRemove(post: Post) {
                 viewModel.removeById(post.id)
             }
 
-            override fun OnEdit(post: Post) {
+            override fun onEdit(post: Post) {
                 viewModel.edit(post)
                 val intent = Intent(this@MainActivity, EditPostActivity::class.java).apply {
                     putExtra("text", post.content)
+                    putExtra("video", post.contentVideo)
 
                 }
-
                 startActivityForResult(intent, editPostRequestCode)
             }
 
-            override fun OnCancelEdit(post: Post) {
+            override fun onCancelEdit(post: Post) {
                 viewModel.cancelChange()
             }
 
@@ -77,21 +77,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.edited.observe(this) { post ->
             if (post.id == 0L) {
                 return@observe
-
             }
-            binding2.cancelTextTv.text = post.content
-
         }
-
 
         binding.addPostView.setOnClickListener {
             val intent = Intent(this, NewPostActivity::class.java)
             startActivityForResult(intent, newPostRequestCode)
         }
-
-
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -113,14 +106,12 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
                 data?.extras?.let {
-                    val editTextContent = it?.get("editContentText").toString()
-                    val videoContent = it?.get("contentVideo").toString()
-                    viewModel.changeContent(editTextContent, videoContent)
+                    val textContent = it?.get("edContentText").toString()
+                    val videoContent = it?.get("edContentVideo").toString()
+                    viewModel.changeContent(textContent, videoContent)
                     viewModel.save()
                 }
-
             }
-
         }
     }
 }

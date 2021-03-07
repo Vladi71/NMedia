@@ -35,17 +35,20 @@ class EditPostActivity : AppCompatActivity() {
         }
 
         binding.contentEt.setText(intent.getStringExtra("text"))
-        binding.contentVideoEt.setText(intent.getStringExtra("text"))
+        binding.contentVideoEt.setText(intent.getStringExtra("video"))
 
-
+        binding.contentVideoEt.requestFocus()
         binding.contentEt.requestFocus()
         binding.saveIv.setOnClickListener {
             val intent = Intent()
             if (binding.contentEt.text.isNullOrBlank()) {
                 setResult(Activity.RESULT_CANCELED, intent)
             } else {
-                val editContentText = binding.contentEt.text.toString()
-                intent.putExtra("editContentText", editContentText)
+                val contentText = binding.contentEt.text.toString()
+                intent.putExtra("edContentText", contentText)
+                setResult(Activity.RESULT_OK, intent)
+                val contentVideo = binding.contentVideoEt.text.toString()
+                intent.putExtra("edContentVideo", contentVideo)
                 setResult(Activity.RESULT_OK, intent)
 
             }

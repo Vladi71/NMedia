@@ -45,13 +45,11 @@ class PostViewModel : ViewModel() {
         edited.value?.let {
             val text = content.trim()
             val url = contentVideo.trim()
-            if (it.content == text ) {
+            if (it.content == text) {
                 return
             }
-
             edited.value =
-                    it.copy(content = text, contentVideo = url)
-
+                    it.copy(content = text, contentVideo = url, )
         }
     }
 

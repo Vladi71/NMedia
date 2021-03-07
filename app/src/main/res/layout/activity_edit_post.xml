@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="editedTextTv, avatarV" />
+        app:constraint_referenced_ids="contentVideoEt" />
 
     <ImageView
         android:id="@+id/avatarV"
@@ -102,9 +102,8 @@
         android:importantForAccessibility="no"
         android:inputType="textMultiLine"
         android:maxHeight="200dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/contentEt"
         app:layout_constraintStart_toStartOf="@+id/contentEt"
-        app:layout_constraintTop_toBottomOf="@+id/publishedBarrier" />
+        app:layout_constraintTop_toBottomOf="@+id/avatarV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
