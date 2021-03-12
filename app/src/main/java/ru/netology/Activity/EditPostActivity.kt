@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import ru.netology.AndroidUtils
 import ru.netology.R
 import ru.netology.databinding.ActivityEditPostBinding
-import ru.netology.databinding.ActivityNewPostBinding
 import ru.netology.viewModel.PostViewModel
 
 class EditPostActivity : AppCompatActivity() {
