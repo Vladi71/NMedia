@@ -18,7 +18,9 @@ import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
 
 class FeedFragment : Fragment() {
-    val viewModel: PostViewModel by viewModels()
+    private val viewModel: PostViewModel by viewModels(
+            ownerProducer = ::requireParentFragment
+    )
     private val newPostRequestCode = 1
     private val editPostRequestCode = 2
 
@@ -49,13 +51,12 @@ class FeedFragment : Fragment() {
             }
 
             override fun onEdit(post: Post) {
-                viewModel.edit(post)
-//                val intent = Intent(this@FeedFragment, EditPostActivity::class.java).apply {
-//                    putExtra("text", post.content)
-//                    putExtra("video", post.contentVideo)
 
-                //            }
-                //     startActivityForResult(intent, editPostRequestCode)
+                viewModel.edit(post)
+//                val content = Bundle()
+//
+                findNavController().navigate(R.id.action_feedFragment_to_editPostFragment)
+
             }
 
             override fun onCancelEdit(post: Post) {
@@ -76,40 +77,10 @@ class FeedFragment : Fragment() {
 
         binding.addPostView.setOnClickListener {
             findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
-
         }
         return binding.root
     }
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            newPostRequestCode -> {
-                if (resultCode != Activity.RESULT_OK) {
-                    return
-                }
-                data?.extras?.let {
-                    val textContent = it?.get("contentText").toString()
-                    val videoContent = it?.get("contentVideo").toString()
-                    viewModel.changeContent(textContent, videoContent)
-                    viewModel.save()
-
-                }
-            }
-            editPostRequestCode -> {
-                if (resultCode != Activity.RESULT_OK) {
-                    return
-                }
-                data?.extras?.let {
-                    val textContent = it?.get("edContentText").toString()
-                    val videoContent = it?.get("edContentVideo").toString()
-                    viewModel.changeContent(textContent, videoContent)
-                    viewModel.save()
-                }
-            }
-        }
-    }
 }
 
 

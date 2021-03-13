@@ -11,7 +11,7 @@
 9-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:5:5-26:19
+11-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:5:5-28:19
 12        android:allowBackup="true"
 12-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -30,31 +30,31 @@
 21        android:theme="@style/Theme.NMedia" >
 21-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:11:9-44
 22        <activity android:name="ru.netology.Activity.AppActivity" >
-22-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:13:9-25:20
+22-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:13:9-27:20
 22-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:13:19-55
 23            <intent-filter>
-23-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:15:13-19:29
+23-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:15:13-21:29
 24                <action android:name="android.intent.action.SEND" />
 24-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:16:17-69
 24-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:16:25-66
 25
 26                <category android:name="android.intent.category.DEFAULT" />
-26-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:17:17-76
-26-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:17:27-73
+26-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:17-76
+26-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:27-73
 27
-28                <data android:mimeType="*/*" />
-28-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:17-48
-28-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:18:23-45
+28                <data android:mimeType="text/plain" />
+28-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:20:17-55
+28-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:20:23-52
 29            </intent-filter>
 30            <intent-filter>
-30-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:21:13-24:29
+30-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:22:13-26:29
 31                <action android:name="android.intent.action.MAIN" />
-31-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:22:17-69
-31-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:22:25-66
+31-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:23:17-69
+31-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:23:25-66
 32
 33                <category android:name="android.intent.category.LAUNCHER" />
-33-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:23:17-77
-33-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:23:27-74
+33-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:25:17-77
+33-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:25:27-74
 34            </intent-filter>
 35        </activity>
 36    </application>

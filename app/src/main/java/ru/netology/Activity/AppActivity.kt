@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.commit
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
 import ru.netology.R
@@ -12,13 +14,9 @@ import ru.netology.databinding.ActivityAppBinding
 class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_app)
+
         val binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-       supportFragmentManager.commit {
-           add(R.id.nav_host_fragment, FeedFragment())
-       }
 
         intent?.let {
             if (it.action != Intent.ACTION_SEND) {

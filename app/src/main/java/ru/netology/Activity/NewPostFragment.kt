@@ -17,6 +17,10 @@ import ru.netology.databinding.FragmentNewPostBinding
 import ru.netology.viewModel.PostViewModel
 
 class NewPostFragment : Fragment() {
+    private val viewModel: PostViewModel by viewModels(
+            ownerProducer = ::requireParentFragment
+    )
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +28,7 @@ class NewPostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val viewModel: PostViewModel by viewModels()
+
         val binding = FragmentNewPostBinding.inflate(inflater, container, false)
 
 
@@ -34,7 +38,7 @@ class NewPostFragment : Fragment() {
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
-
+                findNavController().navigateUp()
             }
         }
         binding.addIv.setOnClickListener {
@@ -53,11 +57,9 @@ class NewPostFragment : Fragment() {
                 activity?.setResult(Activity.RESULT_CANCELED, intent)
             } else {
                 val contentText = binding.contentEt.text.toString()
-                intent.putExtra("contentText", contentText)
-                activity?.setResult(Activity.RESULT_OK, intent)
                 val contentVideo = binding.contentVideoEt.text.toString()
-                intent.putExtra("contentVideo", contentVideo)
-                activity?.setResult(Activity.RESULT_OK, intent)
+                viewModel.changeContent(contentText, contentVideo)
+                viewModel.save()
             }
             findNavController().navigateUp()
         }

@@ -1,6 +1,7 @@
 package ru.netology
 
 import android.content.Context
+import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import java.lang.Math.floor
@@ -19,6 +20,8 @@ class Utils {
             }
         }
     }
+
+
 }
 
 object AndroidUtils {
@@ -27,3 +30,5 @@ object AndroidUtils {
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
+
+

@@ -1690,6 +1690,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_feedFragment_to_editPostFragment
 id action_feedFragment_to_newPostFragment
 id action_image
 id action_menu_divider
@@ -1786,6 +1787,7 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id editPostFragment
 id edit_query
 id editedTextTv
 id end
@@ -2094,7 +2096,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_app
-layout activity_edit_post
 layout card_post
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2112,6 +2113,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_edit_post
 layout fragment_feed
 layout fragment_new_post
 layout mtrl_alert_dialog

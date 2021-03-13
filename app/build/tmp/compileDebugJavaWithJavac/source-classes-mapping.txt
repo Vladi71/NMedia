@@ -1,12 +1,12 @@
-ru/netology/databinding/FragmentNewPostBinding.java
- ru.netology.databinding.FragmentNewPostBinding
+ru/netology/databinding/ActivityAppBinding.java
+ ru.netology.databinding.ActivityAppBinding
 ru/netology/databinding/CardPostBinding.java
  ru.netology.databinding.CardPostBinding
 ru/netology/databinding/FragmentFeedBinding.java
  ru.netology.databinding.FragmentFeedBinding
 ru/netology/BuildConfig.java
  ru.netology.BuildConfig
-ru/netology/databinding/ActivityEditPostBinding.java
- ru.netology.databinding.ActivityEditPostBinding
-ru/netology/databinding/ActivityAppBinding.java
- ru.netology.databinding.ActivityAppBinding
+ru/netology/databinding/FragmentEditPostBinding.java
+ ru.netology.databinding.FragmentEditPostBinding
+ru/netology/databinding/FragmentNewPostBinding.java
+ ru.netology.databinding.FragmentNewPostBinding
