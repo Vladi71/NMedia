@@ -10,3 +10,5 @@ ru/netology/databinding/FragmentEditPostBinding.java
  ru.netology.databinding.FragmentEditPostBinding
 ru/netology/databinding/FragmentNewPostBinding.java
  ru.netology.databinding.FragmentNewPostBinding
+ru/netology/databinding/FragmentPostBinding.java
+ ru.netology.databinding.FragmentPostBinding

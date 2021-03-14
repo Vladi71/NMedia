@@ -24,12 +24,12 @@
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\card_post.xml"
     },
     {
-        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_mode_edit_outline_2.xml.flat",
-        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\ic_baseline_mode_edit_outline_2.xml"
-    },
-    {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_app.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_app.xml"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_mode_edit_outline_2.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\ic_baseline_mode_edit_outline_2.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_liked_avatar.xml.flat",
@@ -38,6 +38,10 @@
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_like_avatar.xml.flat",
         "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\drawable\\like_avatar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_post.xml.flat",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_post.xml"
     },
     {
         "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\res\\merged\\debug\\drawable_share_avatar.xml.flat",

@@ -18,6 +18,7 @@ interface OnInteractionListener {
     fun onRemove(post: Post) {}
     fun onEdit(post: Post) {}
     fun onCancelEdit(post: Post) {}
+    fun onOpenPost(post: Post) {}
 }
 
 class PostAdapter(
@@ -63,6 +64,9 @@ class PostViewHolder(
         }
         binding.shareIb.setOnClickListener {
             OnInteractionListener.onShare(post)
+        }
+        binding.contentTv.setOnClickListener {
+            OnInteractionListener.onOpenPost(post)
         }
 
 

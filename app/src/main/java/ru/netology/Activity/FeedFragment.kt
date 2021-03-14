@@ -63,6 +63,19 @@ class FeedFragment : Fragment() {
 
             override fun onCancelEdit(post: Post) {
                 viewModel.cancelChange()
+
+            }
+
+            override fun onOpenPost(post: Post) {
+                viewModel.openPost(post)
+                val bundle = Bundle()
+                bundle.putString("text", post.content)
+                bundle.putString("video", post.contentVideo)
+                bundle.putString("published", post.published)
+                bundle.putString("like", post.numberOfLike.toString())
+                bundle.putString("share", post.numberOfShare.toString())
+                bundle.putString("view", post.numberOfView.toString())
+                findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundle)
             }
 
         })

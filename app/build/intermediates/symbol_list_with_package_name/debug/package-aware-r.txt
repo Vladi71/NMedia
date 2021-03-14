@@ -1692,6 +1692,7 @@ id action_context_bar
 id action_divider
 id action_feedFragment_to_editPostFragment
 id action_feedFragment_to_newPostFragment
+id action_feedFragment_to_postFragment
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -1906,6 +1907,7 @@ id peekHeight
 id percent
 id pin
 id position
+id postFragment
 id postLayout
 id progress_circular
 id progress_horizontal
@@ -2116,6 +2118,7 @@ layout design_text_input_start_icon
 layout fragment_edit_post
 layout fragment_feed
 layout fragment_new_post
+layout fragment_post
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
