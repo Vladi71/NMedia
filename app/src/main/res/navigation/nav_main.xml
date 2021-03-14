@@ -26,7 +26,7 @@
         android:name="ru.netology.Activity.NewPostFragment"
         android:label="fragment_new_post"
         tools:layout="@layout/fragment_new_post" />
-    <activity
+    <fragment
         android:id="@+id/editPostFragment"
         android:name="ru.netology.Activity.EditPostFragment"
         android:label="fragment_edit_post"

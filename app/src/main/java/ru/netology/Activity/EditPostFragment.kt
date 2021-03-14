@@ -15,12 +15,13 @@ import ru.netology.viewModel.PostViewModel
 class EditPostFragment : Fragment() {
 
     private val viewModel: PostViewModel by viewModels(
-            ownerProducer = ::requireParentFragment
+        ownerProducer = ::requireParentFragment
     )
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
 
@@ -37,8 +38,9 @@ class EditPostFragment : Fragment() {
                 findNavController().navigateUp()
             }
         }
-//        binding.contentEt.text = arguments?.get("text") as Editable?
-//        binding.contentEt.text = arguments?.get("video") as Editable?
+
+        binding.contentEt.setText(arguments?.getString("text"))
+        binding.contentVideoEt.setText(arguments?.getString("video"))
 
 
 

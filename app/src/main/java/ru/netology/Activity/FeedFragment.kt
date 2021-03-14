@@ -51,12 +51,11 @@ class FeedFragment : Fragment() {
             }
 
             override fun onEdit(post: Post) {
-
                 viewModel.edit(post)
-//                val content = Bundle()
-//
-                findNavController().navigate(R.id.action_feedFragment_to_editPostFragment)
-
+                val bundle = Bundle()
+                bundle.putString("text", post.content)
+                bundle.putString("video", post.contentVideo)
+                findNavController().navigate(R.id.action_feedFragment_to_editPostFragment, bundle)
             }
 
             override fun onCancelEdit(post: Post) {
@@ -78,6 +77,11 @@ class FeedFragment : Fragment() {
         binding.addPostView.setOnClickListener {
             findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
         }
+
+
+
+
+
         return binding.root
     }
 
