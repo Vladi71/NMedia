@@ -19,12 +19,14 @@ import ru.netology.viewModel.PostViewModel
 
 class FeedFragment : Fragment() {
     private val viewModel: PostViewModel by viewModels(
-            ownerProducer = ::requireParentFragment
+        ownerProducer = ::requireParentFragment
     )
-    private val newPostRequestCode = 1
-    private val editPostRequestCode = 2
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
 
@@ -38,7 +40,8 @@ class FeedFragment : Fragment() {
                     putExtra(Intent.EXTRA_TEXT, post.content)
                     type = "text/plain"
                 }
-                val shareIntent = Intent.createChooser(intent, getString(R.string.shooser_intent_post))
+                val shareIntent =
+                    Intent.createChooser(intent, getString(R.string.shooser_intent_post))
                 startActivity(shareIntent)
             }
 
@@ -78,13 +81,8 @@ class FeedFragment : Fragment() {
             findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
         }
 
-
-
-
-
         return binding.root
     }
-
 }
 
 

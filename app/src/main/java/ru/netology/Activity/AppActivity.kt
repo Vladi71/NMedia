@@ -32,7 +32,6 @@ class AppActivity : AppCompatActivity() {
                         .show()
                 return@let
             }
-            // TODO: handle text
         }
     }
 }
