@@ -26,14 +26,17 @@ class PostFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = FragmentPostBinding.inflate(inflater, container, false)
 
         binding.contentTv.setText(arguments?.getString("text"))
         binding.videoIb.setText(arguments?.getString("video"))
         binding.viewIb.setText(arguments?.getString("view"))
         binding.likeIb.setText(arguments?.getString("like"))
+        binding.likeIb.isChecked = arguments?.getBoolean("lbm") ?: false
         binding.publishedTv.setText(arguments?.getString("published"))
         binding.shareIb.setText(arguments?.getString("share"))
+
 
         PostAdapter(object : OnInteractionListener {
 

@@ -11,6 +11,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.R
+import ru.netology.Utils
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
 import ru.netology.databinding.FragmentFeedBinding
@@ -72,9 +73,10 @@ class FeedFragment : Fragment() {
                 bundle.putString("text", post.content)
                 bundle.putString("video", post.contentVideo)
                 bundle.putString("published", post.published)
-                bundle.putString("like", post.numberOfLike.toString())
-                bundle.putString("share", post.numberOfShare.toString())
-                bundle.putString("view", post.numberOfView.toString())
+                bundle.putString("like", Utils.valueUpgrade(post.numberOfLike))
+                bundle.putString("share", Utils.valueUpgrade(post.numberOfShare))
+                bundle.putString("view", Utils.valueUpgrade(post.numberOfView))
+                bundle.putBoolean("lbm", post.likedByMe)
                 findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundle)
             }
 
