@@ -94,7 +94,7 @@
         android:paddingStart="145dp"
         android:textColorHighlight="#00FFFFFF"
         android:textColorLink="#00FFFFFF"
-        android:visibility="visible"
+        android:visibility="gone"
         app:icon="@drawable/video_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

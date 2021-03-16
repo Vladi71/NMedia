@@ -38,6 +38,7 @@ class PostAdapter(
     }
 }
 
+
 class PostViewHolder(
         private val binding: CardPostBinding,
         private val OnInteractionListener: OnInteractionListener,

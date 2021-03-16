@@ -23,9 +23,9 @@ class NewPostFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
 
@@ -51,6 +51,7 @@ class NewPostFragment : Fragment() {
 
         binding.contentEt.requestFocus()
         binding.contentVideoEt.requestFocus()
+
         binding.saveIv.setOnClickListener {
             val intent = Intent()
             if (TextUtils.isEmpty(binding.contentEt.text)) {
@@ -58,11 +59,14 @@ class NewPostFragment : Fragment() {
             } else {
                 val contentText = binding.contentEt.text.toString()
                 val contentVideo = binding.contentVideoEt.text.toString()
+
                 viewModel.changeContent(contentText, contentVideo)
                 viewModel.save()
+
             }
             findNavController().navigateUp()
         }
+
         return binding.root
     }
 }

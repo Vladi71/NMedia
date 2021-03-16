@@ -33,10 +33,18 @@
         android:id="@+id/editPostFragment"
         android:name="ru.netology.Activity.EditPostFragment"
         android:label="fragment_edit_post"
-        tools:layout="@layout/fragment_edit_post" />
+        tools:layout="@layout/fragment_edit_post" >
+        <action
+            android:id="@+id/action_editPostFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="ru.netology.Activity.PostFragment"
         android:label="fragment_post"
-        tools:layout="@layout/fragment_post" />
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/action_postFragment_to_editPostFragment"
+            app:destination="@id/editPostFragment" />
+    </fragment>
 </navigation>

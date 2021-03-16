@@ -1,7 +1,6 @@
 package ru.netology.Activity
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,19 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.AndroidUtils
+import ru.netology.R
 import ru.netology.databinding.FragmentEditPostBinding
 import ru.netology.viewModel.PostViewModel
 
 class EditPostFragment : Fragment() {
 
     private val viewModel: PostViewModel by viewModels(
-        ownerProducer = ::requireParentFragment
+            ownerProducer = ::requireParentFragment
     )
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
 
@@ -52,7 +52,7 @@ class EditPostFragment : Fragment() {
             val contentVideo = binding.contentVideoEt.text.toString()
             viewModel.changeContent(contentText, contentVideo)
             viewModel.save()
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.action_editPostFragment_to_feedFragment)
         }
 
         return binding.root

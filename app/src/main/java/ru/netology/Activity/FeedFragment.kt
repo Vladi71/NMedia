@@ -1,17 +1,15 @@
 package ru.netology.Activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import ru.netology.AndroidUtils
 import ru.netology.R
-import ru.netology.Utils
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
 import ru.netology.databinding.FragmentFeedBinding
@@ -70,13 +68,8 @@ class FeedFragment : Fragment() {
             override fun onOpenPost(post: Post) {
                 viewModel.openPost(post)
                 val bundle = Bundle()
-                bundle.putString("text", post.content)
-                bundle.putString("video", post.contentVideo)
-                bundle.putString("published", post.published)
-                bundle.putString("like", Utils.valueUpgrade(post.numberOfLike))
-                bundle.putString("share", Utils.valueUpgrade(post.numberOfShare))
-                bundle.putString("view", Utils.valueUpgrade(post.numberOfView))
-                bundle.putBoolean("lbm", post.likedByMe)
+                bundle.putLong("id", post.id)
+//
                 findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundle)
             }
 
@@ -98,6 +91,7 @@ class FeedFragment : Fragment() {
 
         return binding.root
     }
+
 }
 
 

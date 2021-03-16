@@ -1690,6 +1690,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_editPostFragment_to_feedFragment
 id action_feedFragment_to_editPostFragment
 id action_feedFragment_to_newPostFragment
 id action_feedFragment_to_postFragment
@@ -1699,6 +1700,7 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_postFragment_to_editPostFragment
 id action_text
 id actions
 id activity_chooser_view_content
