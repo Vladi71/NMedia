@@ -113,7 +113,8 @@ class PostRepositoryInMemoryImpl(private val dao: PostDao) : PostRepository {
         data.value = posts
     }
 
-    override fun get(): LiveData<List<Post>> = data
+    override fun getAll(): LiveData<List<Post>> = data
+
 
     override fun likeById(id: Long) {
         dao.likeById(id)

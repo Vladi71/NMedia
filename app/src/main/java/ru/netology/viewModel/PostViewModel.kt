@@ -16,7 +16,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryInMemoryImpl(
             AppDb.getInstance(application).postDao
     )
-    val data = repository.get()
+    val data = repository.getAll()
     fun likeById(id: Long) = repository.likeById(id)
     fun shareById(id: Long) = repository.shareById(id)
     fun removeById(id: Long) = repository.removeBuId(id)
@@ -37,6 +37,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
             contentVideo = ""
 
     )
+
     val edited = MutableLiveData(empty)
 
     fun save() {
