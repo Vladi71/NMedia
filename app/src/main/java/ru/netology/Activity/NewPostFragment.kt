@@ -62,7 +62,7 @@ class NewPostFragment : Fragment() {
 
                 viewModel.changeContent(contentText, contentVideo)
                 viewModel.save()
-
+                AndroidUtils.hideKeyboard(requireView())
             }
             findNavController().navigateUp()
         }

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import ru.netology.db.AppDb
 import ru.netology.dto.Post
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryInMemoryImpl
@@ -11,8 +12,10 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class PostViewModel(application: Application) : AndroidViewModel(application)  {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl(application)
+class PostViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: PostRepository = PostRepositoryInMemoryImpl(
+            AppDb.getInstance(application).postDao
+    )
     val data = repository.get()
     fun likeById(id: Long) = repository.likeById(id)
     fun shareById(id: Long) = repository.shareById(id)
@@ -51,16 +54,18 @@ class PostViewModel(application: Application) : AndroidViewModel(application)  {
                 return
             }
             edited.value =
-                    it.copy(content = text, contentVideo = url, )
+                    it.copy(content = text, contentVideo = url)
         }
     }
 
     fun edit(post: Post) {
         edited.value = post
     }
+
     fun openPost(post: Post) {
         edited.value = post
     }
+
     fun cancelChange() {
         edited.value = edited.value
     }

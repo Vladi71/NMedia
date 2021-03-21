@@ -1780,6 +1780,7 @@ id direct
 id disableHome
 id disablePostScroll
 id disableScroll
+id draftTv
 id dragDown
 id dragEnd
 id dragLeft

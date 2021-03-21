@@ -52,6 +52,7 @@ class EditPostFragment : Fragment() {
             val contentVideo = binding.contentVideoEt.text.toString()
             viewModel.changeContent(contentText, contentVideo)
             viewModel.save()
+            AndroidUtils.hideKeyboard(requireView())
             findNavController().navigate(R.id.action_editPostFragment_to_feedFragment)
         }
 
