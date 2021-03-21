@@ -1,4 +1,4 @@
-#Sun Mar 21 11:31:45 MSK 2021
+#Sun Mar 21 17:00:40 MSK 2021
 base.0=C\:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

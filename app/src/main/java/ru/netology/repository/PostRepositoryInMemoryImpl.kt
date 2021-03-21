@@ -1,11 +1,8 @@
 package ru.netology.repository
 
-import android.content.Context
-import android.text.TextUtils.isEmpty
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import ru.netology.dao.PostDao
 import ru.netology.dto.Post
 

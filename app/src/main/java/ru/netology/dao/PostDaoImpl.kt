@@ -25,7 +25,7 @@ class PostDaoImpl(private val db: SQLiteDatabase) : PostDao {
             ${PostColumns.COLUMN_LIKES} INTEGER NOT NULL DEFAULT 0,
             ${PostColumns.COLUMN_VIEWS} INTEGER NOT NULL DEFAULT 0,
             ${PostColumns.COLUMN_SHARE} INTEGER NOT NULL DEFAULT 0,
-            ${PostColumns.COLUMN_VIDEO} INTEGER NOT NULL DEFAULT 0,
+            ${PostColumns.COLUMN_VIDEO} TEXT
         );
         """.trimIndent()
     }
@@ -77,10 +77,10 @@ class PostDaoImpl(private val db: SQLiteDatabase) : PostDao {
             if (post.id != 0L) {
                 put(PostColumns.COLUMN_ID, post.id)
             }
-            // TODO: remove hardcoded values
+
             put(PostColumns.COLUMN_AUTHOR, "Нетология. Университет интернет-профессий будущего")
             put(PostColumns.COLUMN_CONTENT, post.content)
-            put(PostColumns.COLUMN_CONTENT, post.contentVideo)
+            put(PostColumns.COLUMN_VIDEO, post.contentVideo)
             put(PostColumns.COLUMN_PUBLISHED, formatter.format(currentDate))
         }
         val id = db.replace(PostColumns.TABLE, null, values)
@@ -120,9 +120,9 @@ class PostDaoImpl(private val db: SQLiteDatabase) : PostDao {
     override fun shareById(id: Long) {
         db.execSQL(
                 """
-           UPDATE posts SET
-               share = share THEN +1 END
-           WHERE id = ?;
+          UPDATE posts SET
+              share = share +1
+          WHERE id = ?;           
         """.trimIndent(), arrayOf(id)
         )
     }
