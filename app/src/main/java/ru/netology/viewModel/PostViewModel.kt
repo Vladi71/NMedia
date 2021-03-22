@@ -3,18 +3,17 @@ package ru.netology.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import ru.netology.db.AppDb
 import ru.netology.dto.Post
 import ru.netology.repository.PostRepository
-import ru.netology.repository.PostRepositoryInMemoryImpl
+import ru.netology.repository.PostRepositoryImpl
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl(
-            AppDb.getInstance(application).postDao
+    private val repository: PostRepository = PostRepositoryImpl(
+            AppDb.getInstance(context = application).postDao()
     )
     val data = repository.getAll()
     fun likeById(id: Long) = repository.likeById(id)

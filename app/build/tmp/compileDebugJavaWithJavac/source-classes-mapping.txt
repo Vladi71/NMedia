@@ -1,3 +1,11 @@
+ru/netology/dao/PostDao_Impl.java
+ ru.netology.dao.PostDao_Impl
+ ru.netology.dao.PostDao_Impl$1
+ ru.netology.dao.PostDao_Impl$2
+ ru.netology.dao.PostDao_Impl$3
+ ru.netology.dao.PostDao_Impl$4
+ ru.netology.dao.PostDao_Impl$5
+ ru.netology.dao.PostDao_Impl$6
 ru/netology/databinding/ActivityAppBinding.java
  ru.netology.databinding.ActivityAppBinding
 ru/netology/databinding/CardPostBinding.java
@@ -8,6 +16,9 @@ ru/netology/BuildConfig.java
  ru.netology.BuildConfig
 ru/netology/databinding/FragmentEditPostBinding.java
  ru.netology.databinding.FragmentEditPostBinding
+ru/netology/db/AppDb_Impl.java
+ ru.netology.db.AppDb_Impl
+ ru.netology.db.AppDb_Impl$1
 ru/netology/databinding/FragmentNewPostBinding.java
  ru.netology.databinding.FragmentNewPostBinding
 ru/netology/databinding/FragmentPostBinding.java

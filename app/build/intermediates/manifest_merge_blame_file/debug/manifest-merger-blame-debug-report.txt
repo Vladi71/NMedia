@@ -57,6 +57,15 @@
 33-->C:\Users\ronrs\AndroidStudioProjects\nMedia\app\src\main\AndroidManifest.xml:25:27-74
 34            </intent-filter>
 35        </activity>
-36    </application>
-37
-38</manifest>
+36
+37        <service
+37-->[androidx.room:room-runtime:2.2.6] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\81b4067fab1eac51e17ab8f622485434\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+38            android:name="androidx.room.MultiInstanceInvalidationService"
+38-->[androidx.room:room-runtime:2.2.6] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\81b4067fab1eac51e17ab8f622485434\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+39            android:directBootAware="true"
+39-->[androidx.room:room-runtime:2.2.6] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\81b4067fab1eac51e17ab8f622485434\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+40            android:exported="false" />
+40-->[androidx.room:room-runtime:2.2.6] C:\Users\ronrs\.gradle\caches\transforms-2\files-2.1\81b4067fab1eac51e17ab8f622485434\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+41    </application>
+42
+43</manifest>
