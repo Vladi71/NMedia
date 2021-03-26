@@ -8,6 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.FirebaseMessagingService
 import ru.netology.R
 import ru.netology.databinding.ActivityAppBinding
 
@@ -18,7 +20,7 @@ class AppActivity : AppCompatActivity() {
         val binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        intent?.let {
+                intent?.let {
             if (it.action != Intent.ACTION_SEND) {
                 return@let
             }

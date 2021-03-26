@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "ru.netology"
-        minSdkVersion 23
+        minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -68,6 +69,8 @@ android {
         implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
         implementation "androidx.room:room-runtime:$room_version"
         kapt "androidx.room:room-compiler:$room_version"
+        implementation platform('com.google.firebase:firebase-bom:26.7.0')
+        implementation "com.google.firebase:firebase-messaging-ktx"
     }
 }
 
@@ -75,4 +78,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
 }

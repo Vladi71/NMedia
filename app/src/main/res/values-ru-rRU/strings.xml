@@ -17,4 +17,8 @@
     <string name="error_empty_content">Нельзя поделиться</string>
     <string name="post_texts">Введите текст</string>
     <string name="post_url_video">Введите URL</string>
+    <string name="channel_remote_name">Уведомление с сервера</string>
+    <string name="channel_remote_description">Уведомление с удаленного сервера</string>
+    <string name="notification_user_liked">%1$s поставил лайк посту %2$s</string>
+    <string name="notification_user_post">%1$s опубликовал новый пост: </string>
 </resources>
