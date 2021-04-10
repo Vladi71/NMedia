@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="contentVideoEt" />
+        app:constraint_referenced_ids="cancelIv" />
 
     <ImageView
         android:id="@+id/avatarV"
@@ -100,16 +100,6 @@
         app:layout_constraintVertical_bias="0.533"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/contentVideoEt"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:importantForAccessibility="no"
-        android:inputType="textMultiLine"
-        android:maxHeight="200dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/contentEt"
-        app:layout_constraintStart_toStartOf="@+id/contentEt"
-        app:layout_constraintTop_toBottomOf="@+id/avatarV" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

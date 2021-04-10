@@ -41,16 +41,9 @@ class NewPostFragment : Fragment() {
                 findNavController().navigateUp()
             }
         }
-        binding.addIv.setOnClickListener {
-            if (binding.contentVideoEt.isVisible) {
-                binding.contentVideoEt.visibility = View.GONE
-            } else {
-                binding.contentVideoEt.visibility = VISIBLE
-            }
-        }
+
 
         binding.contentEt.requestFocus()
-        binding.contentVideoEt.requestFocus()
 
         binding.saveIv.setOnClickListener {
             val intent = Intent()
@@ -58,9 +51,8 @@ class NewPostFragment : Fragment() {
                 activity?.setResult(Activity.RESULT_CANCELED, intent)
             } else {
                 val contentText = binding.contentEt.text.toString()
-                val contentVideo = binding.contentVideoEt.text.toString()
 
-                viewModel.changeContent(contentText, contentVideo)
+                viewModel.changeContent(contentText)
                 viewModel.save()
                 AndroidUtils.hideKeyboard(requireView())
             }

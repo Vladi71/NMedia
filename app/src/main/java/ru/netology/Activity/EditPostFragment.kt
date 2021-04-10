@@ -38,22 +38,14 @@ class EditPostFragment : Fragment() {
                 findNavController().navigateUp()
             }
         }
-
         binding.contentEt.setText(arguments?.getString("text"))
-        binding.contentVideoEt.setText(arguments?.getString("video"))
 
-
-
-
-        binding.contentVideoEt.requestFocus()
         binding.contentEt.requestFocus()
         binding.saveIv.setOnClickListener {
             val contentText = binding.contentEt.text.toString()
-            val contentVideo = binding.contentVideoEt.text.toString()
-            viewModel.changeContent(contentText, contentVideo)
+            viewModel.changeContent(contentText)
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())
-
         }
         viewModel.postCreated.observe(viewLifecycleOwner) {
             viewModel.loadPosts()

@@ -1,7 +1,6 @@
 package ru.netology.repository
 
 
-
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.MediaType.Companion.toMediaType
@@ -12,7 +11,7 @@ import ru.netology.dto.Post
 import java.util.concurrent.TimeUnit
 
 
-class PostRepositoryImpl: PostRepository {
+class PostRepositoryImpl : PostRepository {
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
         .build()
@@ -26,7 +25,7 @@ class PostRepositoryImpl: PostRepository {
 
     override fun getAll(): List<Post> {
         val request: Request = Request.Builder()
-            .url("${BASE_URL}/api/posts")
+            .url("${BASE_URL}/api/slow/posts")
             .build()
 
         return client.newCall(request)
@@ -61,9 +60,6 @@ class PostRepositoryImpl: PostRepository {
         client.newCall(request)
             .execute()
             .close()
-    }
-    override fun shareById(id: Long) {
-       TODO()
     }
 }
 

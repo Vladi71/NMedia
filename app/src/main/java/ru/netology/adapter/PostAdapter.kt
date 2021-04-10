@@ -14,7 +14,6 @@ import ru.netology.dto.Post
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
-    fun onShare(post: Post) {}
     fun onRemove(post: Post) {}
     fun onEdit(post: Post) {}
     fun onCancelEdit(post: Post) {}
@@ -49,28 +48,17 @@ class PostViewHolder(
             authorTv.text = post.author
             contentTv.text = post.content
             publishedTv.text = post.published
-            likeIb.text = Utils.valueUpgrade(post.numberOfLike)
-            shareIb.text = Utils.valueUpgrade(post.numberOfShare)
-            viewIb.text = post.numberOfView.toString()
+            likeIb.text = Utils.valueUpgrade(post.likes)
             likeIb.isChecked = post.likedByMe
-            videoIb.text = post.contentVideo
-            if (post.contentVideo == "" || !post.contentVideo.startsWith("https")) {
-                videoIb.visibility = View.GONE
-            } else {
-                videoIb.visibility = View.VISIBLE
-            }
+
         }
         binding.likeIb.setOnClickListener {
             OnInteractionListener.onLike(post)
         }
-        binding.shareIb.setOnClickListener {
-            OnInteractionListener.onShare(post)
-        }
+
         binding.contentTv.setOnClickListener {
             OnInteractionListener.onOpenPost(post)
         }
-
-
 
         binding.menuIb.setOnClickListener {
             PopupMenu(it.context, it).apply {
@@ -82,9 +70,7 @@ class PostViewHolder(
                             true
                         }
                         R.id.Edit -> {
-
                             OnInteractionListener.onEdit(post)
-
                             true
                         }
                         else -> false

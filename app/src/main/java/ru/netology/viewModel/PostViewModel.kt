@@ -25,16 +25,12 @@ private val empty = Post(
     content = "",
     published = formatter.format(currentDate),
     likedByMe = false,
-    numberOfLike = 0,
-    numberOfShare = 0,
-    numberOfView = 0,
-    contentVideo = ""
-
-)
+    likes = 0
+   )
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
 
-    fun shareById(id: Long) = repository.shareById(id)
+
 
     // упрощённый вариант
     private val repository: PostRepository = PostRepositoryImpl()
@@ -79,16 +75,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         edited.value = post
     }
 
-    fun changeContent(content: String, contentVideo: String) {
-        edited.value?.let {
-            val text = content.trim()
-            val url = contentVideo.trim()
-            if (it.content == text && it.contentVideo == url) {
-                return
-            }
-            edited.value =
-                it.copy(content = text, contentVideo = url)
+    fun changeContent(content: String) {
+        val text = content.trim()
+        if (edited.value?.content == text) {
+            return
         }
+        edited.value = edited.value?.copy(content = text)
     }
 
     fun likeById(id: Long) {

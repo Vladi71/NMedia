@@ -32,17 +32,6 @@ class FeedFragment : Fragment() {
 
         val adapter = PostAdapter(object : OnInteractionListener {
 
-            override fun onShare(post: Post) {
-                viewModel.shareById(post.id)
-                val intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, post.content)
-                    type = "text/plain"
-                }
-                val shareIntent =
-                    Intent.createChooser(intent, getString(R.string.shooser_intent_post))
-                startActivity(shareIntent)
-            }
 
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
@@ -56,7 +45,6 @@ class FeedFragment : Fragment() {
                 viewModel.edit(post)
                 val bundle = Bundle()
                 bundle.putString("text", post.content)
-                bundle.putString("video", post.contentVideo)
                 findNavController().navigate(R.id.action_feedFragment_to_editPostFragment, bundle)
             }
 

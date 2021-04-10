@@ -33,33 +33,13 @@ class PostFragment : Fragment() {
         viewModel.data.observe(viewLifecycleOwner) {
             val post = it.posts.find { post -> post.id == id } ?: return@observe
             binding.contentTv.text = post.content
-            binding.likeIb.text = Utils.valueUpgrade(post.numberOfLike)
-            binding.videoIb.text = post.contentVideo
-            binding.viewIb.text = Utils.valueUpgrade(post.numberOfView)
             binding.likeIb.isChecked = post.likedByMe
             binding.publishedTv.text = post.published
-            binding.shareIb.text = Utils.valueUpgrade(post.numberOfShare)
-
-            if (post.contentVideo == "" || !post.contentVideo.startsWith("https")) {
-                binding.viewIb.visibility = View.GONE
-            } else {
-                binding.videoIb.visibility = View.VISIBLE
-            }
 
             binding.likeIb.setOnClickListener {
                 viewModel.likeById(post.id)
             }
-            binding.shareIb.setOnClickListener {
-                viewModel.shareById(post.id)
-                val intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, post.content)
-                    type = "text/plain"
-                }
-                val shareIntent =
-                        Intent.createChooser(intent, getString(R.string.shooser_intent_post))
-                startActivity(shareIntent)
-            }
+
             binding.menuIb.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
@@ -74,7 +54,6 @@ class PostFragment : Fragment() {
                                 viewModel.edit(post)
                                 val bundle = Bundle()
                                 bundle.putString("text", post.content)
-                                bundle.putString("video", post.contentVideo)
                                 findNavController().navigate(R.id.action_postFragment_to_editPostFragment, bundle)
 
                                 true
