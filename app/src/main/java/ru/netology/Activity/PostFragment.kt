@@ -11,10 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.R
 import ru.netology.Utils
-import ru.netology.adapter.OnInteractionListener
-import ru.netology.adapter.PostAdapter
 import ru.netology.databinding.FragmentPostBinding
-import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
 
 class PostFragment : Fragment() {
@@ -34,7 +31,7 @@ class PostFragment : Fragment() {
 
         val id = arguments?.getLong("id") ?: 0
         viewModel.data.observe(viewLifecycleOwner) {
-            val post = it.find { post -> post.id == id } ?: return@observe
+            val post = it.posts.find { post -> post.id == id } ?: return@observe
             binding.contentTv.text = post.content
             binding.likeIb.text = Utils.valueUpgrade(post.numberOfLike)
             binding.videoIb.text = post.contentVideo

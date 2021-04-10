@@ -3,13 +3,12 @@ package ru.netology.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.commit
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.iid.FirebaseInstanceId
 import ru.netology.R
 import ru.netology.databinding.ActivityAppBinding
 
@@ -34,6 +33,25 @@ class AppActivity : AppCompatActivity() {
                         .show()
                 return@let
             }
+        }
+        checkGoogleApiAvailability()
+    }
+    private fun checkGoogleApiAvailability() {
+        with(GoogleApiAvailability.getInstance()) {
+            val code = isGooglePlayServicesAvailable(this@AppActivity)
+            if (code == ConnectionResult.SUCCESS) {
+                return@with
+            }
+            if (isUserResolvableError(code)) {
+                getErrorDialog(this@AppActivity, code, 9000).show()
+                return
+            }
+            Toast.makeText(this@AppActivity, R.string.google_play_unavailable, Toast.LENGTH_LONG)
+                .show()
+        }
+
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+            println(it.token)
         }
     }
 }

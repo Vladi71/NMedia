@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import ru.netology.AndroidUtils
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
@@ -69,15 +69,21 @@ class FeedFragment : Fragment() {
                 viewModel.openPost(post)
                 val bundle = Bundle()
                 bundle.putLong("id", post.id)
-//
+
                 findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundle)
             }
 
         })
         binding.listPost.adapter = adapter
-        viewModel.data.observe(viewLifecycleOwner) { post ->
-            adapter.submitList(post)
+        viewModel.data.observe(viewLifecycleOwner, { state ->
+            adapter.submitList(state.posts)
+            binding.progress.isVisible = state.loading
+            binding.errorGroup.isVisible = state.error
+            binding.emptyText.isVisible = state.empty
+        })
 
+        binding.retryButton.setOnClickListener {
+            viewModel.loadPosts()
         }
         viewModel.edited.observe(viewLifecycleOwner) { post ->
             if (post.id == 0L) {

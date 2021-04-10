@@ -15,13 +15,13 @@ import ru.netology.viewModel.PostViewModel
 class EditPostFragment : Fragment() {
 
     private val viewModel: PostViewModel by viewModels(
-            ownerProducer = ::requireParentFragment
+        ownerProducer = ::requireParentFragment
     )
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
 
@@ -53,11 +53,13 @@ class EditPostFragment : Fragment() {
             viewModel.changeContent(contentText, contentVideo)
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())
+
+        }
+        viewModel.postCreated.observe(viewLifecycleOwner) {
+            viewModel.loadPosts()
             findNavController().navigate(R.id.action_editPostFragment_to_feedFragment)
         }
-
         return binding.root
     }
-
 }
 

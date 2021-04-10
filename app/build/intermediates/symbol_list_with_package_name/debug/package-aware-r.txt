@@ -1835,9 +1835,11 @@ id easeOut
 id editPostFragment
 id edit_query
 id editedTextTv
+id emptyText
 id end
 id enterAlways
 id enterAlwaysCollapsed
+id errorGroup
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1955,6 +1957,7 @@ id pin
 id position
 id postFragment
 id postLayout
+id progress
 id progress_circular
 id progress_horizontal
 id publishedBarrier
@@ -1963,6 +1966,8 @@ id publishedTv
 id radio
 id ratio
 id rectangles
+id retryButton
+id retryTitle
 id reverseSawtooth
 id right
 id right_icon
@@ -2286,8 +2291,10 @@ string common_signin_button_text_long
 string default_web_client_id
 string edit
 string edit_tv
+string empty_posts
 string error_empty_content
 string error_icon_content_description
+string error_loading
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -2296,6 +2303,7 @@ string gcm_defaultSenderId
 string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
+string google_play_unavailable
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
@@ -2354,6 +2362,7 @@ string post_url_video
 string project_id
 string quantity
 string remove
+string retry_loading
 string search_menu_title
 string shooser_intent_post
 string status_bar_notification_info_overflow

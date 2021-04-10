@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import ru.netology.dto.Post
 import ru.netology.entity.PostEntity
 
 @Dao

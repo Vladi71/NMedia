@@ -21,4 +21,8 @@
     <string name="channel_remote_description">Уведомление с удаленного сервера</string>
     <string name="notification_user_liked">%1$s поставил лайк посту %2$s</string>
     <string name="notification_user_post">%1$s опубликовал новый пост: </string>
+    <string name="error_loading">Что-то пошло не так. Попробуйте позднее</string>
+    <string name="retry_loading">Повторить</string>
+    <string name="empty_posts">Постов нет.\nЕсли создадите новый пост, то он появится здесь</string>
+    <string name="google_play_unavailable">Google Api Недоступно</string>
 </resources>
