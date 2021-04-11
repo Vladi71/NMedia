@@ -6,8 +6,8 @@ import kotlin.concurrent.thread
 
 interface PostRepository {
     fun getAll(): List<Post>
-    fun likeById(id: Long)
-    fun unLikeById(id: Long)
+    fun likeById(id: Long): Post
+    fun unLikeById(id: Long): Post
     fun removeById(id: Long)
     fun save(post: Post)
 

@@ -37,10 +37,11 @@ class PostFragment : Fragment() {
             binding.publishedTv.text = Utils.convertDate(post.published)
 
             binding.likeIb.setOnClickListener {
-                viewModel.likeById(post.id)
-            }
-            binding.likeIb.setOnClickListener {
-                viewModel.unLikeById(post.id)
+                if (!post.likedByMe) {
+                    viewModel.likeById(post.id)
+                }else{
+                    viewModel.unLikeById(post.id)
+                }
             }
 
             binding.menuIb.setOnClickListener {
