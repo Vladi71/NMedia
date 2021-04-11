@@ -16,15 +16,14 @@ import java.time.format.DateTimeFormatter
 import kotlin.concurrent.thread
 
 
-
 private val empty = Post(
-    id = 0,
-    author = "",
-    content = "",
-    published = "",
-    likedByMe = false,
-    likes = 0
-   )
+        id = 0,
+        author = "",
+        content = "",
+        published = "",
+        likedByMe = false,
+        likes = 0
+)
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -84,6 +83,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
         )
     }
+
     fun unLikeById(id: Long) = thread {
         val updatedPost = repository.unLikeById(id)
         _data.postValue(
@@ -98,9 +98,9 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         thread {
             val old = _data.value?.posts.orEmpty()
             _data.postValue(
-                _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                    .filter { it.id != id }
-                )
+                    _data.value?.copy(posts = _data.value?.posts.orEmpty()
+                            .filter { it.id != id }
+                    )
             )
             try {
                 repository.removeById(id)
@@ -109,6 +109,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
     fun openPost(post: Post) {
         edited.value = post
     }

@@ -23,7 +23,7 @@ class PostFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
-            savedInstanceState: Bundle?
+            savedInstanceState: Bundle?,
     ): View? {
 
         val binding = FragmentPostBinding.inflate(inflater, container, false)
@@ -39,7 +39,7 @@ class PostFragment : Fragment() {
             binding.likeIb.setOnClickListener {
                 if (!post.likedByMe) {
                     viewModel.likeById(post.id)
-                }else{
+                } else {
                     viewModel.unLikeById(post.id)
                 }
             }

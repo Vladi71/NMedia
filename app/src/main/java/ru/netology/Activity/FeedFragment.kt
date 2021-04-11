@@ -1,6 +1,6 @@
 package ru.netology.Activity
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
@@ -17,9 +18,12 @@ import ru.netology.dto.Post
 import ru.netology.viewModel.PostViewModel
 
 class FeedFragment : Fragment() {
+
+
     private val viewModel: PostViewModel by viewModels(
         ownerProducer = ::requireParentFragment
     )
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +33,13 @@ class FeedFragment : Fragment() {
 
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
 
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.loadPosts()
+            binding.swipeRefresh.isRefreshing = false
+            binding.swipeRefresh.setColorSchemeResources(
+                android.R.color.holo_purple
+            )
+        }
 
         val adapter = PostAdapter(object : OnInteractionListener {
 
@@ -36,7 +47,7 @@ class FeedFragment : Fragment() {
             override fun onLike(post: Post) {
                 if (!post.likedByMe) {
                     viewModel.likeById(post.id)
-                }else{
+                } else {
                     viewModel.unLikeById(post.id)
                 }
             }
