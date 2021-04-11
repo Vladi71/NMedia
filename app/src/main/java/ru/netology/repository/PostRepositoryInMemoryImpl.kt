@@ -19,13 +19,13 @@ class PostRepositoryImpl : PostRepository {
     private val typeToken = object : TypeToken<List<Post>>() {}
 
     companion object {
-        private const val BASE_URL = "http://10.0.3.2:9999"
+        private const val BASE_URL = "http://10.0.3.2:9999/api"
         private val jsonType = "application/json".toMediaType()
     }
 
     override fun getAll(): List<Post> {
         val request: Request = Request.Builder()
-            .url("${BASE_URL}/api/slow/posts")
+            .url("${BASE_URL}/posts")
             .build()
 
         return client.newCall(request)
@@ -37,24 +37,42 @@ class PostRepositoryImpl : PostRepository {
     }
 
     override fun likeById(id: Long) {
-        // TODO: do this in homework
+        val request: Request = Request.Builder()
+                .post(gson.toJson(id).toRequestBody(jsonType))
+                .url("${BASE_URL}/posts/$id/likes")
+                .build()
+        client.newCall(request)
+                .execute()
+                .close()
+
+    }
+    override fun unLikeById(id: Long) {
+        val request: Request = Request.Builder()
+                .delete()
+                .url("${BASE_URL}/posts/$id/likes")
+                .build()
+        client.newCall(request)
+                .execute()
+                .close()
+
     }
 
     override fun save(post: Post) {
         val request: Request = Request.Builder()
             .post(gson.toJson(post).toRequestBody(jsonType))
-            .url("${BASE_URL}/api/slow/posts")
+            .url("${BASE_URL}/posts")
             .build()
 
         client.newCall(request)
             .execute()
             .close()
+
     }
 
     override fun removeById(id: Long) {
         val request: Request = Request.Builder()
             .delete()
-            .url("${BASE_URL}/api/slow/posts/$id")
+            .url("${BASE_URL}/posts/$id")
             .build()
 
         client.newCall(request)

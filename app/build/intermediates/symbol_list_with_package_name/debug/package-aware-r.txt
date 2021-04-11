@@ -1820,7 +1820,6 @@ id direct
 id disableHome
 id disablePostScroll
 id disableScroll
-id draftTv
 id dragDown
 id dragEnd
 id dragLeft
@@ -1996,7 +1995,6 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
-id shareIb
 id shortcut
 id showCustom
 id showHome
@@ -2076,8 +2074,6 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id videoIb
-id viewIb
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
@@ -2228,6 +2224,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_main
 plurals mtrl_badge_content_description
+string EnterTheText
 string NumberLike
 string PostAuthor
 string PostContent

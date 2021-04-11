@@ -15,24 +15,19 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import kotlin.concurrent.thread
 
-private val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
-val currentDate = Instant.now().atZone(ZoneId.systemDefault())
 
 
 private val empty = Post(
     id = 0,
-    author = "Нетология. Университет интернет-профессий будущего",
+    author = "",
     content = "",
-    published = formatter.format(currentDate),
+    published = "",
     likedByMe = false,
     likes = 0
    )
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
 
-
-
-    // упрощённый вариант
     private val repository: PostRepository = PostRepositoryImpl()
     private val _data = MutableLiveData(FeedModel())
     val data: LiveData<FeedModel>
@@ -48,14 +43,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun loadPosts() {
         thread {
-            // Начинаем загрузку
+
             _data.postValue(FeedModel(loading = true))
             try {
-                // Данные успешно получены
                 val posts = repository.getAll()
                 FeedModel(posts = posts, empty = posts.isEmpty())
             } catch (e: IOException) {
-                // Получена ошибка
                 FeedModel(error = true)
             }.also(_data::postValue)
         }
@@ -84,12 +77,17 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun likeById(id: Long) {
-        thread { repository.likeById(id) }
+        thread { repository.likeById(id)
+        }
     }
+    fun unLikeById(id: Long) {
+        thread { repository.unLikeById(id)
+        }
+    }
+
 
     fun removeById(id: Long) {
         thread {
-            // Оптимистичная модель
             val old = _data.value?.posts.orEmpty()
             _data.postValue(
                 _data.value?.copy(posts = _data.value?.posts.orEmpty()

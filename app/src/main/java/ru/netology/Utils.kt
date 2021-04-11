@@ -3,6 +3,11 @@ package ru.netology
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class Utils {
     companion object {
@@ -17,6 +22,15 @@ class Utils {
                 else -> String.format((count / 1000000.toDouble()).toString() + "M")
             }
         }
+        fun convertDate(s: String): String {
+            return try {
+                val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
+                val currentDate = Instant.now().atZone(ZoneId.systemDefault())
+                formatter.format(currentDate)
+            } catch (e: Exception) {
+                e.toString()
+            }
+        }
     }
 
 
@@ -27,6 +41,8 @@ object AndroidUtils {
         val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+
 }
 
 

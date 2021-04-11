@@ -39,6 +39,8 @@ class EditPostFragment : Fragment() {
             }
         }
         binding.contentEt.setText(arguments?.getString("text"))
+        binding.cancelTextTv.text = arguments?.getString("text")
+
 
         binding.contentEt.requestFocus()
         binding.saveIv.setOnClickListener {

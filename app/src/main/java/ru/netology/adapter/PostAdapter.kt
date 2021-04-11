@@ -45,9 +45,9 @@ class PostViewHolder(
         ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
-            authorTv.text = post.author
+            authorTv.text = "Нетология. Университет интернет-профессий будущего"
             contentTv.text = post.content
-            publishedTv.text = post.published
+            publishedTv.text = Utils.convertDate(post.published)
             likeIb.text = Utils.valueUpgrade(post.likes)
             likeIb.isChecked = post.likedByMe
 

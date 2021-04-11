@@ -8,11 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.AndroidUtils
+import ru.netology.R
 import ru.netology.databinding.FragmentNewPostBinding
 import ru.netology.viewModel.PostViewModel
 
@@ -46,9 +48,13 @@ class NewPostFragment : Fragment() {
         binding.contentEt.requestFocus()
 
         binding.saveIv.setOnClickListener {
-            val intent = Intent()
             if (TextUtils.isEmpty(binding.contentEt.text)) {
-                activity?.setResult(Activity.RESULT_CANCELED, intent)
+                Toast.makeText(
+                        requireContext(),
+                        getString(R.string.EnterTheText),
+                        Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
             } else {
                 val contentText = binding.contentEt.text.toString()
 
