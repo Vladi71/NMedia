@@ -13,6 +13,7 @@ import java.io.IOException
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.concurrent.Executors
 import kotlin.concurrent.thread
 
 
@@ -36,6 +37,8 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     val postCreated: LiveData<Unit>
         get() = _postCreated
 
+    private val executorService = Executors.newFixedThreadPool(64)
+
     init {
         loadPosts()
     }
@@ -55,13 +58,14 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun save() {
         edited.value?.let {
-            thread {
+            executorService.execute {
                 repository.save(it)
                 _postCreated.postValue(Unit)
             }
         }
         edited.value = empty
     }
+
 
     fun edit(post: Post) {
         edited.value = post

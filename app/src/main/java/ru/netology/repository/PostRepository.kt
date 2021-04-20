@@ -13,10 +13,15 @@ interface PostRepository {
 
 
     fun getAllAsync(callback: GetAllCallback)
-
+    fun getPostAsync(id: Long, callback: GetPostCallback)
 
     interface GetAllCallback {
         fun onSuccess(post: List<Post>) {}
+        fun onError(e: Exception) {}
+    }
+
+    interface GetPostCallback {
+        fun onSuccess(post: Post) {}
         fun onError(e: Exception) {}
     }
 

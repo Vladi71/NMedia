@@ -59,6 +59,28 @@ class PostRepositoryImpl : PostRepository {
                 })
     }
 
+    override fun getPostAsync(id: Long, callback: PostRepository.GetPostCallback) {
+        val request: Request = Request.Builder()
+                .url("${BASE_URL}/posts/$id")
+                .build()
+        client.newCall(request)
+                .enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+                        callback.onError(e)
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        val body = response.body?.string() ?: throw RuntimeException("body is null")
+                        try {
+                            callback.onSuccess(gson.fromJson(body, typePostToken.type))
+                        } catch (e: Exception) {
+                            callback.onError(e)
+                        }
+                    }
+
+                })
+    }
+
     override fun likeById(id: Long): Post {
         val request: Request = Request.Builder()
                 .method("POST", body = "".toRequestBody())
@@ -99,9 +121,7 @@ class PostRepositoryImpl : PostRepository {
                 .build()
 
         client.newCall(request)
-
                 .execute()
-                .close()
 
     }
 
