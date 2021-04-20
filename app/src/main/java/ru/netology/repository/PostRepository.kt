@@ -19,4 +19,5 @@ interface PostRepository {
         fun onSuccess(post: List<Post>) {}
         fun onError(e: Exception) {}
     }
+
 }

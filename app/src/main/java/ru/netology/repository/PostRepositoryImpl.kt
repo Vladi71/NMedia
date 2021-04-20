@@ -42,7 +42,7 @@ class PostRepositoryImpl : PostRepository {
                 .url("${BASE_URL}/posts")
                 .build()
         client.newCall(request)
-                .enqueue(object: Callback{
+                .enqueue(object : Callback {
                     override fun onFailure(call: Call, e: IOException) {
                         callback.onError(e)
                     }
@@ -51,14 +51,13 @@ class PostRepositoryImpl : PostRepository {
                         val body = response.body?.string() ?: throw RuntimeException("body is null")
                         try {
                             callback.onSuccess(gson.fromJson(body, typeToken.type))
-                        }catch (e: Exception){
+                        } catch (e: Exception) {
                             callback.onError(e)
                         }
                     }
 
                 })
     }
-
 
     override fun likeById(id: Long): Post {
         val request: Request = Request.Builder()
@@ -105,8 +104,6 @@ class PostRepositoryImpl : PostRepository {
                 .close()
 
     }
-
-
 
 
     override fun removeById(id: Long) {
