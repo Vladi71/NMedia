@@ -20,6 +20,7 @@ import kotlin.concurrent.thread
 private val empty = Post(
         id = 0,
         author = "",
+        authorAvatar = "",
         content = "",
         published = "",
         likedByMe = false,
@@ -79,7 +80,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         edited.value = edited.value?.copy(content = text)
     }
 
-    fun likeById(id: Long) = thread {
+    fun likeById(id: Long) = executorService.execute {
         val updatedPost = repository.likeById(id)
         _data.postValue(
                 _data.value?.copy(posts = _data.value?.posts.orEmpty()
@@ -88,7 +89,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-    fun unLikeById(id: Long) = thread {
+    fun unLikeById(id: Long) = executorService.execute {
         val updatedPost = repository.unLikeById(id)
         _data.postValue(
                 _data.value?.copy(posts = _data.value?.posts.orEmpty()
@@ -99,7 +100,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
 
     fun removeById(id: Long) {
-        thread {
+        executorService.execute {
             val old = _data.value?.posts.orEmpty()
             _data.postValue(
                     _data.value?.copy(posts = _data.value?.posts.orEmpty()
