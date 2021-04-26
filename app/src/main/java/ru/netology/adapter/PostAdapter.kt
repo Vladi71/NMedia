@@ -13,6 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.netology.R
 import ru.netology.Utils
 import ru.netology.databinding.CardPostBinding
+import ru.netology.dto.Attachment
 import ru.netology.dto.Post
 import kotlin.math.round
 
@@ -65,6 +66,19 @@ class PostViewHolder(
                     .timeout(10_000)
                     .into(binding.avatarV)
 
+            val urlImg = "http://10.0.3.2:9999/images/${post.attachment?.url}"
+            Glide.with(binding.imageIV)
+                    .load(urlImg)
+                    .placeholder(R.drawable.ic_baseline_rotate_right_24)
+                    .error(R.drawable.ic_baseline_cloud_off_24)
+                    .timeout(10_000)
+                    .into(binding.imageIV)
+
+            if (post.attachment == null ) {
+                imageIV.visibility = View.GONE
+            } else {
+                imageIV.visibility = View.VISIBLE
+            }
         }
         binding.likeIb.setOnClickListener {
             OnInteractionListener.onLike(post)

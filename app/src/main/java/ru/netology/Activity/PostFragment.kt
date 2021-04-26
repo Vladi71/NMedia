@@ -36,6 +36,7 @@ class PostFragment : Fragment() {
             binding.likeIb.isChecked = post.likedByMe
             binding.likeIb.text = post.likes.toString()
             binding.publishedTv.text = Utils.convertDate(post.published)
+
             val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"
             Glide.with(binding.avatarV)
                     .load(url)
@@ -43,6 +44,20 @@ class PostFragment : Fragment() {
                     .error(R.drawable.ic_baseline_cloud_off_24)
                     .timeout(10_000)
                     .into(binding.avatarV)
+
+            val urlImg = "http://10.0.3.2:9999/images/${post.attachment?.url}"
+            Glide.with(binding.imageIV)
+                    .load(urlImg)
+                    .placeholder(R.drawable.ic_baseline_rotate_right_24)
+                    .error(R.drawable.ic_baseline_cloud_off_24)
+                    .timeout(10_000)
+                    .into(binding.imageIV)
+
+            if (post.attachment == null ) {
+                binding.imageIV.visibility = View.GONE
+            } else {
+               binding.imageIV.visibility = View.VISIBLE
+            }
 
             binding.likeIb.setOnClickListener {
                 if (!post.likedByMe) {
