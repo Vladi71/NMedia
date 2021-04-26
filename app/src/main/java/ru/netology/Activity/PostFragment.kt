@@ -1,6 +1,6 @@
 package ru.netology.Activity
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +9,7 @@ import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import ru.netology.R
 import ru.netology.Utils
 import ru.netology.databinding.FragmentPostBinding
@@ -28,7 +29,6 @@ class PostFragment : Fragment() {
 
         val binding = FragmentPostBinding.inflate(inflater, container, false)
 
-
         val id = arguments?.getLong("id") ?: 0
         viewModel.data.observe(viewLifecycleOwner) {
             val post = it.posts.find { post -> post.id == id } ?: return@observe
@@ -36,6 +36,13 @@ class PostFragment : Fragment() {
             binding.likeIb.isChecked = post.likedByMe
             binding.likeIb.text = post.likes.toString()
             binding.publishedTv.text = Utils.convertDate(post.published)
+            val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"
+            Glide.with(binding.avatarV)
+                    .load(url)
+                    .placeholder(R.drawable.ic_baseline_rotate_right_24)
+                    .error(R.drawable.ic_baseline_cloud_off_24)
+                    .timeout(10_000)
+                    .into(binding.avatarV)
 
             binding.likeIb.setOnClickListener {
                 if (!post.likedByMe) {

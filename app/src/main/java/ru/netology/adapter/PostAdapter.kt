@@ -7,10 +7,14 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.Key.STRING_CHARSET_NAME
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.netology.R
 import ru.netology.Utils
 import ru.netology.databinding.CardPostBinding
 import ru.netology.dto.Post
+import kotlin.math.round
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
@@ -20,16 +24,18 @@ interface OnInteractionListener {
     fun onOpenPost(post: Post) {}
 }
 
+@Suppress("UNREACHABLE_CODE")
 class PostAdapter(
-        private val OnInteractionListener: OnInteractionListener
+        private val OnInteractionListener: OnInteractionListener,
 ) :
         ListAdapter<Post, PostViewHolder>(PostDiffCallback()) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(binding, OnInteractionListener)
+
     }
+
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val post = getItem(position)
@@ -45,11 +51,19 @@ class PostViewHolder(
         ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
-            authorTv.text = "Нетология. Университет интернет-профессий будущего"
+            authorTv.text = post.author
             contentTv.text = post.content
             publishedTv.text = Utils.convertDate(post.published)
             likeIb.text = Utils.valueUpgrade(post.likes)
             likeIb.isChecked = post.likedByMe
+            val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"
+            Glide.with(binding.avatarV)
+                    .load(url)
+                    .transform(RoundedCorners(80))
+                    .placeholder(R.drawable.ic_baseline_rotate_right_24)
+                    .error(R.drawable.ic_baseline_cloud_off_24)
+                    .timeout(10_000)
+                    .into(binding.avatarV)
 
         }
         binding.likeIb.setOnClickListener {

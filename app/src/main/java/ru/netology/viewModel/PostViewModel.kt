@@ -10,7 +10,6 @@ import ru.netology.model.FeedModel
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryImpl
 import java.io.IOException
-import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.Executors
@@ -19,8 +18,8 @@ import kotlin.concurrent.thread
 
 private val empty = Post(
         id = 0,
-        author = "",
-        authorAvatar = "",
+        author = "Нетология. Университет интернет-профессий будущего",
+        authorAvatar = "netology.jpg",
         content = "",
         published = "",
         likedByMe = false,
@@ -122,5 +121,6 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun cancelChange() {
         edited.value = edited.value
     }
+
 }
 

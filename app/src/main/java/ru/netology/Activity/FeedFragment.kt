@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.bumptech.glide.Glide
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
@@ -32,6 +33,8 @@ class FeedFragment : Fragment() {
     ): View? {
 
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
+
+
 
         binding.swipeRefresh.setOnRefreshListener {
             viewModel.loadPosts()

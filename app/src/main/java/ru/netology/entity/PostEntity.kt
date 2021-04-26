@@ -2,6 +2,7 @@ package ru.netology.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import ru.netology.dto.Attachment
 import ru.netology.dto.Post
 
 @Entity
@@ -13,7 +14,8 @@ class PostEntity(
         val content: String,
         val published: String,
         val likedByMe: Boolean,
-        val likes: Int,
+        val likes: Int
+
 ) {
     fun toDto() = Post(
             id, author, authorAvatar, content, published, likedByMe, likes

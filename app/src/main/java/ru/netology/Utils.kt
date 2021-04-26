@@ -9,6 +9,10 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+enum class AttachmentType {
+    IMAGE
+}
+
 class Utils {
     companion object {
         fun valueUpgrade(count: Int): String {
