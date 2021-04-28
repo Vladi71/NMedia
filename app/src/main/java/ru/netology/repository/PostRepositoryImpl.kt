@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
+import ru.netology.api.PostsApi
 import ru.netology.dto.Post
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -60,25 +61,21 @@ class PostRepositoryImpl : PostRepository {
     }
 
     override fun getPostAsync(id: Long, callback: PostRepository.GetPostCallback) {
-        val request: Request = Request.Builder()
-                .url("${BASE_URL}/posts/$id")
-                .build()
-        client.newCall(request)
-                .enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-                        callback.onError(e)
-                    }
+        PostsApi.retrofitService.getAll().enqueue(object : retrofit2.Callback<List<Post>> {
+            override fun onResponse(call: retrofit2.Call<List<Post>>, response: retrofit2.Response<List<Post>>) {
+                if (!response.isSuccessful) {
+                    callback.onError(java.lang.RuntimeException(response.message()))
+                    return
+                }
 
-                    override fun onResponse(call: Call, response: Response) {
-                        val body = response.body?.string() ?: throw RuntimeException("body is null")
-                        try {
-                            callback.onSuccess(gson.fromJson(body, typePostToken.type))
-                        } catch (e: Exception) {
-                            callback.onError(e)
-                        }
-                    }
+                callback.onSuccess(response.body()
+                        ?: throw java.lang.RuntimeException("body is null"))
+            }
 
-                })
+            override fun onFailure(call: retrofit2.Call<List<Post>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     override fun likeById(id: Long): Post {
@@ -113,6 +110,8 @@ class PostRepositoryImpl : PostRepository {
                     gson.fromJson(it, typePostToken.type)
                 }
     }
+
+
 
     override fun save(post: Post) {
         val request: Request = Request.Builder()

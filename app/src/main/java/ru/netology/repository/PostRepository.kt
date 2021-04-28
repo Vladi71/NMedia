@@ -2,7 +2,6 @@ package ru.netology.repository
 
 
 import ru.netology.dto.Post
-import kotlin.concurrent.thread
 
 interface PostRepository {
     fun getAll(): List<Post>
@@ -21,7 +20,12 @@ interface PostRepository {
     }
 
     interface GetPostCallback {
-        fun onSuccess(post: Post) {}
+        fun onSuccess(post: List<Post>) {}
+        fun onError(e: Exception) {}
+    }
+
+    interface Callback<T> {
+        fun onSuccess(posts: T) {}
         fun onError(e: Exception) {}
     }
 
