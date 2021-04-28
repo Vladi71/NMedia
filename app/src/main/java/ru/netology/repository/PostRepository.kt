@@ -20,7 +20,7 @@ interface PostRepository {
     }
 
     interface GetPostCallback {
-        fun onSuccess(post: List<Post>) {}
+        fun onSuccess(post: Post) {}
         fun onError(e: Exception) {}
     }
 
