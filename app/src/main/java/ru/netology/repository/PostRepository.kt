@@ -4,11 +4,11 @@ package ru.netology.repository
 import ru.netology.dto.Post
 
 interface PostRepository {
-    fun getAll(): List<Post>
-    fun likeById(id: Long): Post
-    fun unLikeById(id: Long): Post
-    fun removeById(id: Long)
-    fun save(post: Post)
+
+    fun likeById(id: Long, callback: Callback<Post>)
+    fun unLikeById(id: Long, callback: Callback<Post>)
+    fun removeById(id: Long, callback: Callback<Unit>)
+    fun save(post: Post, callback: Callback<Post>)
 
 
     fun getAllAsync(callback: GetAllCallback)
