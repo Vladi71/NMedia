@@ -17,13 +17,13 @@ import kotlin.concurrent.thread
 
 
 private val empty = Post(
-        id = 0,
-        author = "Нетология. Университет интернет-профессий будущего",
-        authorAvatar = "netology.jpg",
-        content = "",
-        published = "",
-        likedByMe = false,
-        likes = 0
+    id = 0,
+    author = "Нетология. Университет интернет-профессий будущего",
+    authorAvatar = "netology.jpg",
+    content = "",
+    published = "",
+    likedByMe = false,
+    likes = 0
 )
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
@@ -82,18 +82,18 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun likeById(id: Long) = executorService.execute {
         val updatedPost = repository.likeById(id)
         _data.postValue(
-                _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                        .map { if (it.id != updatedPost.id) it else updatedPost }
-                )
+            _data.value?.copy(posts = _data.value?.posts.orEmpty()
+                .map { if (it.id != updatedPost.id) it else updatedPost }
+            )
         )
     }
 
     fun unLikeById(id: Long) = executorService.execute {
         val updatedPost = repository.unLikeById(id)
         _data.postValue(
-                _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                        .map { if (it.id != updatedPost.id) it else updatedPost }
-                )
+            _data.value?.copy(posts = _data.value?.posts.orEmpty()
+                .map { if (it.id != updatedPost.id) it else updatedPost }
+            )
         )
     }
 
@@ -102,9 +102,9 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         executorService.execute {
             val old = _data.value?.posts.orEmpty()
             _data.postValue(
-                    _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                            .filter { it.id != id }
-                    )
+                _data.value?.copy(posts = _data.value?.posts.orEmpty()
+                    .filter { it.id != id }
+                )
             )
             try {
                 repository.removeById(id)
