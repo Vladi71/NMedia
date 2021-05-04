@@ -1,26 +1,31 @@
 package ru.netology.api
 
-import com.google.gson.internal.GsonBuildConfig
+
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import ru.netology.BuildConfig
 import ru.netology.dto.Post
-import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "http://10.0.3.2:9999/api/"
+private const val BASE_URL = "${BuildConfig.BASE_URL}/api/"
 
-private val client = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .build()
-
+private val logging = HttpLoggingInterceptor().apply {
+    if (BuildConfig.DEBUG) {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+}
+private val okhttp = OkHttpClient.Builder()
+    .addInterceptor(logging)
+    .build()
 
 private val retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
-        .client(client)
-        .build()
+    .addConverterFactory(GsonConverterFactory.create())
+    .baseUrl(BASE_URL)
+    .client(okhttp)
+    .build()
 
 interface PostsApiService {
 
@@ -45,7 +50,5 @@ interface PostsApiService {
 
 
 object PostsApi {
-    val retrofitService: PostsApiService by lazy {
-        retrofit.create(PostsApiService::class.java)
-    }
+    val retrofitService: PostsApiService = retrofit.create(PostsApiService::class.java)
 }

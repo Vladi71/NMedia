@@ -11,18 +11,9 @@ interface PostRepository {
     fun save(post: Post, callback: Callback<Post>)
 
 
-    fun getAllAsync(callback: GetAllCallback)
-    fun getPostAsync(id: Long, callback: GetPostCallback)
+    fun getAllAsync(callback: Callback<List<Post>>)
+    fun getPostAsync(id: Long, callback: Callback<Post>)
 
-    interface GetAllCallback {
-        fun onSuccess(post: List<Post>) {}
-        fun onError(e: Exception) {}
-    }
-
-    interface GetPostCallback {
-        fun onSuccess(post: Post) {}
-        fun onError(e: Exception) {}
-    }
 
     interface Callback<T> {
         fun onSuccess(posts: T) {}

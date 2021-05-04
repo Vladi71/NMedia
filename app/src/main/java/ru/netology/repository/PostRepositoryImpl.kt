@@ -6,45 +6,53 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.netology.api.PostsApi
 import ru.netology.dto.Post
+import ru.netology.model.FeedModel
 import java.lang.RuntimeException
 
 
 class PostRepositoryImpl : PostRepository {
 
-    override fun getAllAsync(callback: PostRepository.GetAllCallback) {
+    override fun getAllAsync(callback: PostRepository.Callback<List<Post>>) {
         PostsApi.retrofitService.getAll().enqueue(object : Callback<List<Post>> {
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
-
-                callback.onSuccess(response.body()
-                        ?: throw java.lang.RuntimeException("body is null"))
+                callback.onSuccess(
+                    response.body()
+                        ?: throw RuntimeException("body is null")
+                )
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
         })
     }
 
-    override fun getPostAsync(id: Long, callback: PostRepository.GetPostCallback) {
+    override fun getPostAsync(id: Long, callback: PostRepository.Callback<Post>) {
         PostsApi.retrofitService.getById(id).enqueue(object : Callback<Post> {
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
-
-                callback.onSuccess(response.body()
-                        ?: throw java.lang.RuntimeException("body is null"))
+                callback.onSuccess(
+                    response.body()
+                        ?: throw RuntimeException("body is null")
+                )
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
-
         })
     }
 
@@ -52,34 +60,37 @@ class PostRepositoryImpl : PostRepository {
         PostsApi.retrofitService.likeById(id).enqueue(object : Callback<Post> {
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
                 callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
-
         })
     }
-
 
     override fun unLikeById(id: Long, callback: PostRepository.Callback<Post>) {
         PostsApi.retrofitService.dislikeById(id).enqueue(object : Callback<Post> {
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
                 callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
-
         })
     }
 
@@ -87,17 +98,18 @@ class PostRepositoryImpl : PostRepository {
         PostsApi.retrofitService.save(post).enqueue(object : Callback<Post> {
             override fun onResponse(call: Call<Post>, response: Response<Post>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
                 callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
-
             }
 
             override fun onFailure(call: Call<Post>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
-
         })
 
     }
@@ -106,16 +118,17 @@ class PostRepositoryImpl : PostRepository {
         PostsApi.retrofitService.removeById(id).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (!response.isSuccessful) {
-                    callback.onError(java.lang.RuntimeException(response.message()))
+                    callback.onError(RuntimeException(response.message()))
                     return
                 }
-                callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                TODO("Not yet implemented")
+                try {
+                } catch (e: NotImplementedError) {
+                    FeedModel(error = true)
+                }
             }
-
         })
     }
 }
