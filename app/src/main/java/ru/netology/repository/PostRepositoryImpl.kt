@@ -4,132 +4,53 @@ package ru.netology.repository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.netology.api.PostsApi
+import ru.netology.api.PostsApiService
 import ru.netology.dto.Post
-import ru.netology.model.FeedModel
 import java.lang.RuntimeException
 
+private fun <T> PostRepository.Callback<T>.retrofitCallback(): Callback<T> =
+    object : Callback<T> {
+        override fun onResponse(call: Call<T>, response: Response<T>) {
+            if (!response.isSuccessful) {
+                onError(RuntimeException(response.message()))
+                return
+            }
+            onSuccess(
+                response.body()
+                    ?: throw RuntimeException("body is null")
+            )
+        }
+
+        override fun onFailure(call: Call<T>, t: Throwable) {
+
+        }
+    }
 
 class PostRepositoryImpl : PostRepository {
 
     override fun getAllAsync(callback: PostRepository.Callback<List<Post>>) {
-        PostsApi.retrofitService.getAll().enqueue(object : Callback<List<Post>> {
-            override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-                callback.onSuccess(
-                    response.body()
-                        ?: throw RuntimeException("body is null")
-                )
-            }
-
-            override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.getAll().enqueue(callback.retrofitCallback())
     }
 
     override fun getPostAsync(id: Long, callback: PostRepository.Callback<Post>) {
-        PostsApi.retrofitService.getById(id).enqueue(object : Callback<Post> {
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-                callback.onSuccess(
-                    response.body()
-                        ?: throw RuntimeException("body is null")
-                )
-            }
-
-            override fun onFailure(call: Call<Post>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.getById(id).enqueue(callback.retrofitCallback())
     }
 
     override fun likeById(id: Long, callback: PostRepository.Callback<Post>) {
-        PostsApi.retrofitService.likeById(id).enqueue(object : Callback<Post> {
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-                callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
-            }
-
-            override fun onFailure(call: Call<Post>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.likeById(id).enqueue(callback.retrofitCallback())
     }
 
     override fun unLikeById(id: Long, callback: PostRepository.Callback<Post>) {
-        PostsApi.retrofitService.dislikeById(id).enqueue(object : Callback<Post> {
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-                callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
-            }
-
-            override fun onFailure(call: Call<Post>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.dislikeById(id).enqueue(callback.retrofitCallback())
     }
 
     override fun save(post: Post, callback: PostRepository.Callback<Post>) {
-        PostsApi.retrofitService.save(post).enqueue(object : Callback<Post> {
-            override fun onResponse(call: Call<Post>, response: Response<Post>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-                callback.onSuccess(response.body() ?: throw RuntimeException("body is null"))
-            }
-
-            override fun onFailure(call: Call<Post>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.save(post).enqueue(callback.retrofitCallback())
 
     }
 
     override fun removeById(id: Long, callback: PostRepository.Callback<Unit>) {
-        PostsApi.retrofitService.removeById(id).enqueue(object : Callback<Unit> {
-            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                if (!response.isSuccessful) {
-                    callback.onError(RuntimeException(response.message()))
-                    return
-                }
-            }
-
-            override fun onFailure(call: Call<Unit>, t: Throwable) {
-                try {
-                } catch (e: NotImplementedError) {
-                    FeedModel(error = true)
-                }
-            }
-        })
+        PostsApiService.instance.removeById(id).enqueue(callback.retrofitCallback())
     }
 }
 

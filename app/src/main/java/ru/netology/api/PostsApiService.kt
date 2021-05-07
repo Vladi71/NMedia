@@ -12,22 +12,30 @@ import ru.netology.dto.Post
 
 private const val BASE_URL = "${BuildConfig.BASE_URL}/api/"
 
-private val logging = HttpLoggingInterceptor().apply {
-    if (BuildConfig.DEBUG) {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-}
-private val okhttp = OkHttpClient.Builder()
-    .addInterceptor(logging)
-    .build()
-
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl(BASE_URL)
-    .client(okhttp)
-    .build()
 
 interface PostsApiService {
+    companion object {
+
+        private val logging = HttpLoggingInterceptor().apply {
+            if (BuildConfig.DEBUG) {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+        }
+
+        private val okhttp = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+
+        private val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .client(okhttp)
+            .build()
+
+        val instance: PostsApiService = retrofit.create(PostsApiService::class.java)
+
+
+    }
 
     @GET("posts")
     fun getAll(): Call<List<Post>>
@@ -49,6 +57,3 @@ interface PostsApiService {
 }
 
 
-object PostsApi {
-    val retrofitService: PostsApiService = retrofit.create(PostsApiService::class.java)
-}
