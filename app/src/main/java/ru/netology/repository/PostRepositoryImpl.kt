@@ -26,6 +26,7 @@ private fun <T> PostRepository.Callback<T>.retrofitCallback(): Callback<T> =
             }
         }
 
+
 class PostRepositoryImpl : PostRepository {
 
     override fun getAllAsync(callback: PostRepository.Callback<List<Post>>) {
