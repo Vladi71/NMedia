@@ -8,14 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.Key.STRING_CHARSET_NAME
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.netology.R
 import ru.netology.Utils
 import ru.netology.databinding.CardPostBinding
-import ru.netology.dto.Attachment
 import ru.netology.dto.Post
-import kotlin.math.round
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
@@ -54,7 +51,7 @@ class PostViewHolder(
         binding.apply {
             authorTv.text = post.author
             contentTv.text = post.content
-            publishedTv.text = Utils.convertDate(post.published)
+            publishedTv.text = Utils.convertDate()
             likeIb.text = Utils.valueUpgrade(post.likes)
             likeIb.isChecked = post.likedByMe
             val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"

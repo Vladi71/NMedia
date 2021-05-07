@@ -3,11 +3,9 @@ package ru.netology
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 enum class AttachmentType {
     IMAGE
@@ -26,7 +24,7 @@ class Utils {
                 else -> String.format((count / 1000000.toDouble()).toString() + "M")
             }
         }
-        fun convertDate(s: String): String {
+        fun convertDate(): String {
             return try {
                 val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
                 val currentDate = Instant.now().atZone(ZoneId.systemDefault())

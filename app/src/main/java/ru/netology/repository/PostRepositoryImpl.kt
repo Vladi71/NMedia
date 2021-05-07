@@ -6,25 +6,25 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.netology.api.PostsApiService
 import ru.netology.dto.Post
-import java.lang.RuntimeException
+import ru.netology.error.ApiError
 
 private fun <T> PostRepository.Callback<T>.retrofitCallback(): Callback<T> =
-    object : Callback<T> {
-        override fun onResponse(call: Call<T>, response: Response<T>) {
-            if (!response.isSuccessful) {
-                onError(RuntimeException(response.message()))
-                return
+        object : Callback<T> {
+            override fun onResponse(call: Call<T>, response: Response<T>) {
+                if (!response.isSuccessful) {
+                    onError(RuntimeException(response.message()))
+                    return
+                }
+                onSuccess(
+                        response.body()
+                                ?: throw RuntimeException("body is null")
+                )
             }
-            onSuccess(
-                response.body()
-                    ?: throw RuntimeException("body is null")
-            )
-        }
 
-        override fun onFailure(call: Call<T>, t: Throwable) {
-
+            override fun onFailure(call: Call<T>, t: Throwable) {
+                onError(ApiError.fromThrowable(t))
+            }
         }
-    }
 
 class PostRepositoryImpl : PostRepository {
 

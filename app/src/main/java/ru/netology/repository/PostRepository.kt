@@ -17,7 +17,7 @@ interface PostRepository {
 
     interface Callback<T> {
         fun onSuccess(posts: T) {}
-        fun onError(e: Exception) {}
+        fun onError(e: RuntimeException) {}
     }
 
 }

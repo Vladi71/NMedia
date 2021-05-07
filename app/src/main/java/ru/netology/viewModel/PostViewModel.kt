@@ -1,7 +1,6 @@
 package ru.netology.viewModel
 
 import android.app.Application
-import android.telecom.Call
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,9 +9,6 @@ import ru.netology.dto.Post
 import ru.netology.model.FeedModel
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryImpl
-import java.io.IOException
-import java.util.concurrent.Callable
-import java.util.concurrent.Executors
 
 
 private val empty = Post(
@@ -47,7 +43,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 _data.postValue(FeedModel(posts = posts, empty = posts.isEmpty()))
             }
 
-            override fun onError(e: Exception) {
+            override fun onError(e: RuntimeException) {
                 _data.postValue(FeedModel(error = true))
             }
         })
@@ -60,7 +56,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                     _postCreated.value = Unit
                 }
 
-                override fun onError(e: Exception) {
+                override fun onError(e: RuntimeException) {
                     _data.postValue(FeedModel(error = true))
                 }
             })
@@ -91,7 +87,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: Exception) {
+            override fun onError(e: RuntimeException) {
                 _data.postValue(FeedModel(error = true))
             }
         })
@@ -107,7 +103,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: Exception) {
+            override fun onError(e: RuntimeException) {
                 _data.postValue(FeedModel(error = true))
             }
         })
@@ -124,7 +120,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: Exception) {
+            override fun onError(e: RuntimeException) {
                 _data.postValue(FeedModel(error = true))
             }
         })
