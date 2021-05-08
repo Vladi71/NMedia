@@ -1,12 +1,14 @@
 package ru.netology.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.SingleLiveEvent
 import ru.netology.dto.Post
 import ru.netology.model.FeedModel
+import ru.netology.repository.BadConnectionException
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryImpl
 
@@ -38,13 +40,18 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun loadPosts() {
         _data.value = FeedModel(loading = true)
+
         repository.getAllAsync(object : PostRepository.Callback<List<Post>> {
             override fun onSuccess(posts: List<Post>) {
-                _data.postValue(FeedModel(posts = posts, empty = posts.isEmpty()))
+                _data.value = FeedModel(posts = posts, empty = posts.isEmpty())
             }
 
-            override fun onError(e: RuntimeException) {
-                _data.postValue(FeedModel(error = true))
+            override fun onError(e: Exception) {
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.value = FeedModel(error = true)
+                }
             }
         })
     }
@@ -56,8 +63,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                     _postCreated.value = Unit
                 }
 
-                override fun onError(e: RuntimeException) {
-                    _data.postValue(FeedModel(error = true))
+                override fun onError(e: Exception) {
+                    if (e is BadConnectionException) {
+                        _data.value = FeedModel(internetError = true)
+                    } else {
+                        _data.postValue(FeedModel(error = true))
+                    }
                 }
             })
 
@@ -87,8 +98,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: RuntimeException) {
-                _data.postValue(FeedModel(error = true))
+            override fun onError(e: Exception) {
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.postValue(FeedModel(error = true))
+                }
             }
         })
     }
@@ -103,8 +118,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: RuntimeException) {
-                _data.postValue(FeedModel(error = true))
+            override fun onError(e: Exception) {
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.postValue(FeedModel(error = true))
+                }
             }
         })
     }
@@ -120,8 +139,13 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
 
-            override fun onError(e: RuntimeException) {
-                _data.postValue(FeedModel(error = true))
+            override fun onError(e: Exception) {
+                Log.e("exec", "GOT removeById onError")
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.value = FeedModel(error = true)
+                }
             }
         })
     }

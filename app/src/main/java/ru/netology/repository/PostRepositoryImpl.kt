@@ -6,13 +6,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.netology.api.PostsApiService
 import ru.netology.dto.Post
-import ru.netology.error.ApiError
 
 private fun <T> PostRepository.Callback<T>.retrofitCallback(): Callback<T> =
         object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
                 if (!response.isSuccessful) {
-                    onError(RuntimeException(response.message()))
+                   onError(RuntimeException(response.message()))
                     return
                 }
                 onSuccess(
@@ -22,7 +21,7 @@ private fun <T> PostRepository.Callback<T>.retrofitCallback(): Callback<T> =
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
-                onError(ApiError.fromThrowable(t))
+                onError(BadConnectionException(t.message ?: "BadConnectionException"))
             }
         }
 

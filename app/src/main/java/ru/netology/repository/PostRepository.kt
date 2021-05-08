@@ -17,7 +17,9 @@ interface PostRepository {
 
     interface Callback<T> {
         fun onSuccess(posts: T) {}
-        fun onError(e: RuntimeException) {}
+        fun onError(e: Exception) {}
     }
 
 }
+
+class BadConnectionException(message:String): Exception(message)
