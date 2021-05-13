@@ -14,13 +14,13 @@ import ru.netology.repository.PostRepositoryImpl
 
 
 private val empty = Post(
-        id = 0,
-        author = "Нетология. Университет интернет-профессий будущего",
-        authorAvatar = "netology.jpg",
-        content = "",
-        published = "",
-        likedByMe = false,
-        likes = 0
+    id = 0,
+    author = "Нетология. Университет интернет-профессий будущего",
+    authorAvatar = "netology.jpg",
+    content = "",
+    published = "",
+    likedByMe = false,
+    likes = 0
 )
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
@@ -89,54 +89,12 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         edited.value = edited.value?.copy(content = text)
     }
 
-    fun likeById(id: Long) {
-        repository.likeById(id, object : PostRepository.Callback<Post> {
-            override fun onSuccess(posts: Post) {
-                _data.postValue(
-                        FeedModel(posts = _data.value?.posts
-                                .orEmpty().map { if (it.id == posts.id) posts else it })
-                )
-            }
 
-            override fun onError(e: Exception) {
-                if (e is BadConnectionException) {
-                    _data.value = FeedModel(internetError = true)
-                } else {
-                    _data.postValue(FeedModel(error = true))
-                }
-            }
-        })
-    }
-
-
-    fun unLikeById(id: Long) {
-        repository.unLikeById(id, object : PostRepository.Callback<Post> {
-            override fun onSuccess(posts: Post) {
-                _data.postValue(
-                        FeedModel(posts = _data.value?.posts
-                                .orEmpty().map { if (it.id == posts.id) posts else it })
-                )
-            }
-
-            override fun onError(e: Exception) {
-                if (e is BadConnectionException) {
-                    _data.value = FeedModel(internetError = true)
-                } else {
-                    _data.postValue(FeedModel(error = true))
-                }
-            }
-        })
     }
 
 
     fun removeById(id: Long) {
-        repository.removeById(id, object : PostRepository.Callback<Unit> {
-            override fun onSuccess(posts: Unit) {
-                _data.postValue(
-                        _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                                .filter { it.id != id }
-                        )
-                )
+
             }
 
             override fun onError(e: Exception) {
