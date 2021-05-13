@@ -2,15 +2,15 @@ package ru.netology.Activity
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.bumptech.glide.Glide
 import ru.netology.R
 import ru.netology.adapter.OnInteractionListener
 import ru.netology.adapter.PostAdapter
@@ -85,6 +85,12 @@ class FeedFragment : Fragment() {
         binding.listPost.adapter = adapter
         viewModel.data.observe(viewLifecycleOwner, { state ->
             adapter.submitList(state.posts)
+
+            if (state.internetError) {
+                displayInternetError()
+                binding.errorGroup.isVisible = true
+                Log.e("exec", "GOT internetError")
+            }
             binding.progress.isVisible = state.loading
             binding.errorGroup.isVisible = state.error
             binding.emptyText.isVisible = state.empty
@@ -104,6 +110,12 @@ class FeedFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun displayInternetError() {
+        Toast.makeText(requireContext(),
+                "Ошибка загрузки. Проверте подключение к сети и повторите попытку.", Toast.LENGTH_SHORT)
+                .show()
     }
 
 }

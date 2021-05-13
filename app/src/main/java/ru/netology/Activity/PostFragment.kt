@@ -35,7 +35,7 @@ class PostFragment : Fragment() {
             binding.contentTv.text = post.content
             binding.likeIb.isChecked = post.likedByMe
             binding.likeIb.text = post.likes.toString()
-            binding.publishedTv.text = Utils.convertDate(post.published)
+            binding.publishedTv.text = Utils.convertDate()
 
             val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"
             Glide.with(binding.avatarV)

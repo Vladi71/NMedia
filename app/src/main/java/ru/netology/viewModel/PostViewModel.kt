@@ -1,19 +1,16 @@
 package ru.netology.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.SingleLiveEvent
 import ru.netology.dto.Post
 import ru.netology.model.FeedModel
+import ru.netology.repository.BadConnectionException
 import ru.netology.repository.PostRepository
 import ru.netology.repository.PostRepositoryImpl
-import java.io.IOException
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import java.util.concurrent.Executors
-import kotlin.concurrent.thread
 
 
 private val empty = Post(
@@ -37,31 +34,44 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     val postCreated: LiveData<Unit>
         get() = _postCreated
 
-    private val executorService = Executors.newFixedThreadPool(64)
-
     init {
         loadPosts()
     }
 
     fun loadPosts() {
         _data.value = FeedModel(loading = true)
-        repository.getAllAsync(object : PostRepository.GetAllCallback {
+
+        repository.getAllAsync(object : PostRepository.Callback<List<Post>> {
             override fun onSuccess(posts: List<Post>) {
-                _data.postValue(FeedModel(posts = posts, empty = posts.isEmpty()))
+                _data.value = FeedModel(posts = posts, empty = posts.isEmpty())
             }
 
             override fun onError(e: Exception) {
-                _data.postValue(FeedModel(error = true))
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.value = FeedModel(error = true)
+                }
             }
         })
     }
 
     fun save() {
         edited.value?.let {
-            executorService.execute {
-                repository.save(it)
-                _postCreated.postValue(Unit)
-            }
+            repository.save(it, object : PostRepository.Callback<Post> {
+                override fun onSuccess(posts: Post) {
+                    _postCreated.value = Unit
+                }
+
+                override fun onError(e: Exception) {
+                    if (e is BadConnectionException) {
+                        _data.value = FeedModel(internetError = true)
+                    } else {
+                        _data.postValue(FeedModel(error = true))
+                    }
+                }
+            })
+
         }
         edited.value = empty
     }
@@ -79,40 +89,25 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         edited.value = edited.value?.copy(content = text)
     }
 
-    fun likeById(id: Long) = executorService.execute {
-        val updatedPost = repository.likeById(id)
-        _data.postValue(
-            _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                .map { if (it.id != updatedPost.id) it else updatedPost }
-            )
-        )
-    }
 
-    fun unLikeById(id: Long) = executorService.execute {
-        val updatedPost = repository.unLikeById(id)
-        _data.postValue(
-            _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                .map { if (it.id != updatedPost.id) it else updatedPost }
-            )
-        )
     }
 
 
     fun removeById(id: Long) {
-        executorService.execute {
-            val old = _data.value?.posts.orEmpty()
-            _data.postValue(
-                _data.value?.copy(posts = _data.value?.posts.orEmpty()
-                    .filter { it.id != id }
-                )
-            )
-            try {
-                repository.removeById(id)
-            } catch (e: IOException) {
-                _data.postValue(_data.value?.copy(posts = old))
+
             }
-        }
+
+            override fun onError(e: Exception) {
+                Log.e("exec", "GOT removeById onError")
+                if (e is BadConnectionException) {
+                    _data.value = FeedModel(internetError = true)
+                } else {
+                    _data.value = FeedModel(error = true)
+                }
+            }
+        })
     }
+
 
     fun openPost(post: Post) {
         edited.value = post

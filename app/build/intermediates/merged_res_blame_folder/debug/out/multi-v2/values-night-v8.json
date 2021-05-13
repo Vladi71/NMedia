@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2,15",
                         "startColumns": "4,4",
@@ -23,24 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\values-night\\strings.xml",
-                    "from": {
-                        "startLines": "21,3,14,13,5,7,19,10,17,20,2,15,16,11,12,8,4,18,9,6",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1309,109,747,677,251,356,1125,500,995,1233,57,836,918,567,621,398,208,1076,440,290",
-                        "endColumns": "56,97,87,68,37,40,106,65,79,74,50,80,75,52,54,40,41,47,58,64",
-                        "endOffsets": "1361,202,830,741,284,392,1227,561,1070,1303,103,912,989,615,671,434,245,1119,494,350"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "100,157,255,343,412,450,491,598,664,744,819,870,951,1027,1080,1135,1176,1218,1266,1325",
-                        "endColumns": "56,97,87,68,37,40,106,65,79,74,50,80,75,52,54,40,41,47,58,64",
-                        "endOffsets": "152,250,338,407,445,486,593,659,739,814,865,946,1022,1075,1130,1171,1213,1261,1320,1385"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ronrs\\.gradle\\caches\\transforms-2\\files-2.1\\837f0ca145aa3e3158bc58aa16fb0f9b\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Anna\\.gradle\\caches\\transforms-2\\files-2.1\\837f0ca145aa3e3158bc58aa16fb0f9b\\appcompat-1.2.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -57,7 +40,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ronrs\\.gradle\\caches\\transforms-2\\files-2.1\\898f10b64e682233b5dbcf131b653dfb\\material-1.2.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\values-night\\strings.xml",
+                    "from": {
+                        "startLines": "21,3,14,13,5,7,19,10,17,20,2,15,16,11,12,8,4,18,9,6",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1309,109,747,677,251,356,1125,500,995,1233,57,836,918,567,621,398,208,1076,440,290",
+                        "endColumns": "56,97,87,68,37,40,106,65,79,74,50,80,75,52,54,40,41,47,58,64",
+                        "endOffsets": "1361,202,830,741,284,392,1227,561,1070,1303,103,912,989,615,671,434,245,1119,494,350"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "100,157,255,343,412,450,491,598,664,744,819,870,951,1027,1080,1135,1176,1218,1266,1325",
+                        "endColumns": "56,97,87,68,37,40,106,65,79,74,50,80,75,52,54,40,41,47,58,64",
+                        "endOffsets": "152,250,338,407,445,486,593,659,739,814,865,946,1022,1075,1130,1171,1213,1261,1320,1385"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Anna\\.gradle\\caches\\transforms-2\\files-2.1\\898f10b64e682233b5dbcf131b653dfb\\material-1.2.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
