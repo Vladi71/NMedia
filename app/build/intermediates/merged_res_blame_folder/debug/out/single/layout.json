@@ -1,26 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_new_post.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_new_post.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_post.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_post.xml"
     },
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_post.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_post.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_feed.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_feed.xml"
     },
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_app.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_app.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_app.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\activity_app.xml"
     },
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\card_post.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\card_post.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\card_post.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\card_post.xml"
     },
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_edit_post.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_edit_post.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_new_post.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_new_post.xml"
     },
     {
-        "merged": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_feed.xml",
-        "source": "C:\\Users\\Anna\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_feed.xml"
+        "merged": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_edit_post.xml",
+        "source": "C:\\Users\\ronrs\\AndroidStudioProjects\\nMedia\\app\\src\\main\\res\\layout\\fragment_edit_post.xml"
     }
 ]

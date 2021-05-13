@@ -51,7 +51,7 @@ class PostViewHolder(
         binding.apply {
             authorTv.text = post.author
             contentTv.text = post.content
-            publishedTv.text = Utils.convertDate()
+            publishedTv.text = Utils.nowDate(post.published)
             likeIb.text = Utils.valueUpgrade(post.likes)
             likeIb.isChecked = post.likedByMe
             val url = "http://10.0.3.2:9999/avatars/${post.authorAvatar}"

@@ -24,7 +24,7 @@ class Utils {
                 else -> String.format((count / 1000000.toDouble()).toString() + "M")
             }
         }
-        fun convertDate(): String {
+        fun nowDate(s: String): String {
             return try {
                 val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
                 val currentDate = Instant.now().atZone(ZoneId.systemDefault())
