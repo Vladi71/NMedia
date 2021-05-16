@@ -18,7 +18,7 @@ private val empty = Post(
         author = "Нетология. Университет интернет-профессий будущего",
         authorAvatar = "netology.jpg",
         content = "",
-        published = "",
+        published = 0,
         likedByMe = false,
         likes = 0
 )

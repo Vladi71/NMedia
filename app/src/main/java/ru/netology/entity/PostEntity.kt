@@ -2,7 +2,6 @@ package ru.netology.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.netology.dto.Attachment
 import ru.netology.dto.Post
 
 @Entity
@@ -12,7 +11,7 @@ class PostEntity(
         val author: String,
         val authorAvatar: String,
         val content: String,
-        val published: String,
+        val published: Long,
         val likedByMe: Boolean,
         val likes: Int
 

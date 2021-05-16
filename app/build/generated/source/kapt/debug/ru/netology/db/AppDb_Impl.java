@@ -32,9 +32,9 @@ public final class AppDb_Impl extends AppDb {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `PostEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `author` TEXT NOT NULL, `authorAvatar` TEXT NOT NULL, `content` TEXT NOT NULL, `published` TEXT NOT NULL, `likedByMe` INTEGER NOT NULL, `likes` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `PostEntity` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `author` TEXT NOT NULL, `authorAvatar` TEXT NOT NULL, `content` TEXT NOT NULL, `published` INTEGER NOT NULL, `likedByMe` INTEGER NOT NULL, `likes` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cdf4a1adcbb8011c5d637fa8299a79c5')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14ed471321988a1bae8ed4af9ecd6b4c')");
       }
 
       @Override
@@ -83,7 +83,7 @@ public final class AppDb_Impl extends AppDb {
         _columnsPostEntity.put("author", new TableInfo.Column("author", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPostEntity.put("authorAvatar", new TableInfo.Column("authorAvatar", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPostEntity.put("content", new TableInfo.Column("content", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsPostEntity.put("published", new TableInfo.Column("published", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsPostEntity.put("published", new TableInfo.Column("published", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPostEntity.put("likedByMe", new TableInfo.Column("likedByMe", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsPostEntity.put("likes", new TableInfo.Column("likes", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysPostEntity = new HashSet<TableInfo.ForeignKey>(0);
@@ -97,7 +97,7 @@ public final class AppDb_Impl extends AppDb {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "cdf4a1adcbb8011c5d637fa8299a79c5", "c4d972f55348a86e36caaa1e371dde24");
+    }, "14ed471321988a1bae8ed4af9ecd6b4c", "8a7d0dcce319152394f75584ca485250");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

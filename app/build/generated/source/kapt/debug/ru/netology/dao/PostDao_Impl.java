@@ -56,11 +56,7 @@ public final class PostDao_Impl implements PostDao {
         } else {
           stmt.bindString(4, value.getContent());
         }
-        if (value.getPublished() == null) {
-          stmt.bindNull(5);
-        } else {
-          stmt.bindString(5, value.getPublished());
-        }
+        stmt.bindLong(5, value.getPublished());
         final int _tmp;
         _tmp = value.getLikedByMe() ? 1 : 0;
         stmt.bindLong(6, _tmp);
@@ -188,8 +184,8 @@ public final class PostDao_Impl implements PostDao {
             _tmpAuthorAvatar = _cursor.getString(_cursorIndexOfAuthorAvatar);
             final String _tmpContent;
             _tmpContent = _cursor.getString(_cursorIndexOfContent);
-            final String _tmpPublished;
-            _tmpPublished = _cursor.getString(_cursorIndexOfPublished);
+            final long _tmpPublished;
+            _tmpPublished = _cursor.getLong(_cursorIndexOfPublished);
             final boolean _tmpLikedByMe;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfLikedByMe);

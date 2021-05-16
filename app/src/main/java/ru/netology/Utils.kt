@@ -3,9 +3,8 @@ package ru.netology
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.*
 
 enum class AttachmentType {
     IMAGE
@@ -17,25 +16,24 @@ class Utils {
             return when (count) {
                 in 0..999 -> count.toString()
                 in 1000..1099 -> String.format((count / 1000).toString() + "K")
-                in 1099..9999 -> String.format("%.1f", (kotlin.math.floor(count / 100.toDouble()))/10) + "K"
+                in 1099..9999 -> String.format("%.1f", (kotlin.math.floor(count / 100.toDouble())) / 10) + "K"
                 in 10000..99999 -> String.format((count / 1000).toString() + "K")
                 in 100000..999999 -> String.format((count / 1000).toString() + "K")
                 in 1000000..1099999 -> String.format((count / 1000000).toString() + "M")
                 else -> String.format((count / 1000000.toDouble()).toString() + "M")
             }
         }
-        fun nowDate(s: String): String {
+
+        fun nowDate(l: Long): String {
             return try {
-                val formatter = DateTimeFormatter.ofPattern("dd MMMM в HH:mm ")
-                val currentDate = Instant.now().atZone(ZoneId.systemDefault())
+                val formatter = SimpleDateFormat("dd MMMM yyyy  HH:mm", Locale.getDefault())
+                val currentDate = Date(l * 1000)
                 formatter.format(currentDate)
             } catch (e: Exception) {
                 e.toString()
             }
         }
     }
-
-
 }
 
 object AndroidUtils {
