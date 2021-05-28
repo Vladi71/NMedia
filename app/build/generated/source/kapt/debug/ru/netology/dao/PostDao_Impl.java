@@ -2,6 +2,7 @@ package ru.netology.dao;
 
 import android.database.Cursor;
 import androidx.lifecycle.LiveData;
+import androidx.room.CoroutinesRoom;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
@@ -9,13 +10,18 @@ import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
+import java.lang.Boolean;
 import java.lang.Exception;
+import java.lang.Integer;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
 import ru.netology.entity.PostEntity;
 
 @SuppressWarnings({"unchecked", "deprecation"})
@@ -24,10 +30,6 @@ public final class PostDao_Impl implements PostDao {
 
   private final EntityInsertionAdapter<PostEntity> __insertionAdapterOfPostEntity;
 
-  private final SharedSQLiteStatement __preparedStmtOfUpdateContentById;
-
-  private final SharedSQLiteStatement __preparedStmtOfLikeById;
-
   private final SharedSQLiteStatement __preparedStmtOfRemoveById;
 
   public PostDao_Impl(RoomDatabase __db) {
@@ -35,7 +37,7 @@ public final class PostDao_Impl implements PostDao {
     this.__insertionAdapterOfPostEntity = new EntityInsertionAdapter<PostEntity>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `PostEntity` (`id`,`author`,`authorAvatar`,`content`,`published`,`likedByMe`,`likes`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `PostEntity` (`id`,`author`,`authorAvatar`,`content`,`published`,`likedByMe`,`likes`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
@@ -63,25 +65,6 @@ public final class PostDao_Impl implements PostDao {
         stmt.bindLong(7, value.getLikes());
       }
     };
-    this.__preparedStmtOfUpdateContentById = new SharedSQLiteStatement(__db) {
-      @Override
-      public String createQuery() {
-        final String _query = "UPDATE PostEntity SET content = ? WHERE id = ?";
-        return _query;
-      }
-    };
-    this.__preparedStmtOfLikeById = new SharedSQLiteStatement(__db) {
-      @Override
-      public String createQuery() {
-        final String _query = "\n"
-                + "        UPDATE PostEntity SET\n"
-                + "        likes = likes + CASE WHEN likedByMe THEN -1 ELSE 1 END,\n"
-                + "        likedByMe = CASE WHEN likedByMe THEN 0 ELSE 1 END\n"
-                + "        WHERE id = ?\n"
-                + "        ";
-        return _query;
-      }
-    };
     this.__preparedStmtOfRemoveById = new SharedSQLiteStatement(__db) {
       @Override
       public String createQuery() {
@@ -92,69 +75,58 @@ public final class PostDao_Impl implements PostDao {
   }
 
   @Override
-  public void insert(final PostEntity post) {
-    __db.assertNotSuspendingTransaction();
-    __db.beginTransaction();
-    try {
-      __insertionAdapterOfPostEntity.insert(post);
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-    }
+  public Object insert(final PostEntity post, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __insertionAdapterOfPostEntity.insert(post);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, p1);
   }
 
   @Override
-  public void updateContentById(final long id, final String content) {
-    __db.assertNotSuspendingTransaction();
-    final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateContentById.acquire();
-    int _argIndex = 1;
-    if (content == null) {
-      _stmt.bindNull(_argIndex);
-    } else {
-      _stmt.bindString(_argIndex, content);
-    }
-    _argIndex = 2;
-    _stmt.bindLong(_argIndex, id);
-    __db.beginTransaction();
-    try {
-      _stmt.executeUpdateDelete();
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-      __preparedStmtOfUpdateContentById.release(_stmt);
-    }
+  public Object insert(final List<PostEntity> posts, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __insertionAdapterOfPostEntity.insert(posts);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, p1);
   }
 
   @Override
-  public void likeById(final long id) {
-    __db.assertNotSuspendingTransaction();
-    final SupportSQLiteStatement _stmt = __preparedStmtOfLikeById.acquire();
-    int _argIndex = 1;
-    _stmt.bindLong(_argIndex, id);
-    __db.beginTransaction();
-    try {
-      _stmt.executeUpdateDelete();
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-      __preparedStmtOfLikeById.release(_stmt);
-    }
-  }
-
-  @Override
-  public void removeById(final long id) {
-    __db.assertNotSuspendingTransaction();
-    final SupportSQLiteStatement _stmt = __preparedStmtOfRemoveById.acquire();
-    int _argIndex = 1;
-    _stmt.bindLong(_argIndex, id);
-    __db.beginTransaction();
-    try {
-      _stmt.executeUpdateDelete();
-      __db.setTransactionSuccessful();
-    } finally {
-      __db.endTransaction();
-      __preparedStmtOfRemoveById.release(_stmt);
-    }
+  public Object removeById(final long id, final Continuation<? super Unit> p1) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfRemoveById.acquire();
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, id);
+        __db.beginTransaction();
+        try {
+          _stmt.executeUpdateDelete();
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+          __preparedStmtOfRemoveById.release(_stmt);
+        }
+      }
+    }, p1);
   }
 
   @Override
@@ -209,7 +181,32 @@ public final class PostDao_Impl implements PostDao {
   }
 
   @Override
-  public void save(final PostEntity post) {
-    PostDao.DefaultImpls.save(PostDao_Impl.this, post);
+  public Object isEmpty(final Continuation<? super Boolean> p0) {
+    final String _sql = "SELECT COUNT(*) == 0 FROM PostEntity";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.execute(__db, false, new Callable<Boolean>() {
+      @Override
+      public Boolean call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Boolean _result;
+          if(_cursor.moveToFirst()) {
+            final Integer _tmp;
+            if (_cursor.isNull(0)) {
+              _tmp = null;
+            } else {
+              _tmp = _cursor.getInt(0);
+            }
+            _result = _tmp == null ? null : _tmp != 0;
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, p0);
   }
 }

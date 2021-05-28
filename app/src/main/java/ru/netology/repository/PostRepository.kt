@@ -1,25 +1,15 @@
 package ru.netology.repository
 
 
+import androidx.lifecycle.LiveData
 import ru.netology.dto.Post
 
 interface PostRepository {
-
-    fun likeById(id: Long, callback: Callback<Post>)
-    fun unLikeById(id: Long, callback: Callback<Post>)
-    fun removeById(id: Long, callback: Callback<Unit>)
-    fun save(post: Post, callback: Callback<Post>)
-
-
-    fun getAllAsync(callback: Callback<List<Post>>)
-    fun getPostAsync(id: Long, callback: Callback<Post>)
-
-
-    interface Callback<T> {
-        fun onSuccess(posts: T) {}
-        fun onError(e: Exception) {}
-    }
-
+    val data: LiveData<List<Post>>
+    suspend fun likeById(id: Long)
+    suspend fun unLikeById(id: Long)
+    suspend fun removeById(id: Long)
+    suspend fun save(post: Post)
+    suspend fun getAll()
 }
 
-class BadConnectionException(message:String): Exception(message)
